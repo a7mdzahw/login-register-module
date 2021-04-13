@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75">
+    <defs>
+        <style>
+            .cls-2{fill:#f64f64}
+        </style>
+    </defs>
+    <g id="delet_trai_acc" transform="translate(1152 -5388)">
+        <rect id="form_bg" width="75" height="75" fill="#feedef" rx="4" transform="translate(-1152 5388)"/>
+        <g id="Group_225" transform="translate(-1137 5405)">
+            <g id="Group_224">
+                <g id="Group_223">
+                    <path id="Path_215" d="M24.5 7.818l17.774 31.363H6.723L24.5 7.818M2.639 36.77A4.821 4.821 0 0 0 6.723 44h35.551a4.821 4.821 0 0 0 4.084-7.232L28.583 5.407a4.67 4.67 0 0 0-8.168 0z" class="cls-2" transform="translate(-1.999 -3.003)"/>
+                    <path id="Path_216" d="M10.53 11.421v7.208a2.393 2.393 0 0 0 2.361 2.411 2.393 2.393 0 0 0 2.361-2.411v-7.208a2.393 2.393 0 0 0-2.361-2.411 2.393 2.393 0 0 0-2.361 2.411z" class="cls-2" transform="translate(9.609 5.472)"/>
+                    <ellipse id="Ellipse_26" cx="2.361" cy="2.411" class="cls-2" rx="2.361" ry="2.411" transform="translate(20.139 28.946)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

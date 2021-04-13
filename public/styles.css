@@ -1,0 +1,289 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap");
+
+:root {
+  --dark: #4b4e6d;
+  --dimmed: #92a1b6;
+  --dimmed-half: #f4f5f8;
+  --primary: #0099ff;
+  --half: #d8f0ff;
+  --light: #f0f9ff;
+  --accent: #ff6600;
+  --accent-half: #fdebde;
+  --accent-light: #fef1e8;
+  --error: #f64f64;
+  --good: #21d97d;
+  --medium: #ffee00;
+  --background: #ffffff;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", "sans-serif";
+}
+
+.bg {
+  box-shadow: 0 5px 50px 0 rgba(102, 137, 163, 0.3);
+  background-color: var(--background);
+}
+
+.Title_signup {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.25;
+  text-align: left;
+  color: var(--dark);
+}
+
+input {
+  height: 2.8rem;
+  width: 100%;
+  border-radius: 4px;
+  border: solid 1px var(--dimmed);
+  background-color: var(--background);
+}
+
+label {
+  font-size: 16px;
+  text-align: left;
+  color: var(--dimmed);
+}
+
+.Rectangle-608 {
+  border-radius: 4px;
+  background-color: var(--primary);
+}
+
+.Rectangle-609 {
+  border-radius: 4px;
+  border: solid 1px var(--primary);
+  background-color: var(--background);
+}
+
+input:hover {
+  outline: none;
+  border-radius: 4px;
+  border: solid 2px var(--primary);
+  background-color: var(--background);
+}
+
+.Rectangle-700 {
+  text-decoration: none;
+  padding: 0.1rem 0.9rem;
+  border-radius: 4px;
+  background-color: var(--primary);
+}
+
+.dim-label {
+  border: none;
+  border-radius: 4px;
+
+  background-color: var(--dimmed-half);
+}
+
+.step {
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  color: var(--dimmed);
+}
+
+.log-in {
+  font-size: 20px;
+  text-align: center;
+  color: var(--background);
+}
+
+.log-in-nav {
+  font-size: 20px;
+  text-align: center;
+  color: var(--primary);
+}
+
+.signup_text {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--dark);
+}
+.signup_text .text-style-1 {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.time {
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: var(--dimmed);
+}
+
+/* Link Sent */
+.linkSend {
+  display: flex;
+  align-items: center;
+  height: 80vh;
+}
+.linkSend .row {
+  width: 100%;
+}
+.linkSend .background img {
+  width: 100%;
+}
+.linkSend .boxLinkSent {
+  background-color: var(--background);
+  box-shadow: 0 30px 30px 0 rgba(102, 137, 163, 0.08);
+  padding: 60px 80px;
+}
+.linkSend .boxLinkSent img {
+  margin-bottom: 15px;
+}
+.linkSend .boxLinkSent .headTitle {
+  margin-bottom: 15px;
+  color: var(--dark);
+  font-size: 40px;
+  font-family: "Cairo";
+  text-transform: capitalize;
+}
+.linkSend .boxLinkSent .content {
+  margin-bottom: 15px;
+  color: #92a1b6;
+  font-size: 16px;
+}
+.linkSend .boxLinkSent .countDown {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: #4b4e6d;
+}
+.linkSend .boxLinkSent .btn-resend:disabled {
+  background-color: #f4f5f8;
+  color: #92a1b6;
+}
+.linkSend .boxLinkSent .hide {
+  display: none;
+}
+.linkSend .boxLinkSent .error {
+  color: #f64f64;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+/* Account Verified   */
+
+.accountVerified {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.accountVerified .row {
+  width: 100%;
+}
+.accountVerified .background img {
+  width: 100%;
+}
+.accountVerified .boxLinkSent {
+  background-color: #ffffff;
+  box-shadow: 0 30px 30px 0 rgba(102, 137, 163, 0.08);
+  padding: 60px 80px;
+}
+.accountVerified .boxLinkSent img {
+  margin-bottom: 15px;
+}
+.accountVerified .boxLinkSent .headTitle {
+  margin-bottom: 15px;
+  color: #92a1b6;
+  font-size: 40px;
+  font-family: "Cairo";
+  text-transform: capitalize;
+}
+.accountVerified .boxLinkSent .content {
+  margin-bottom: 30px;
+  color: #92a1b6;
+  font-size: 16px;
+}
+.accountVerified .boxLinkSent .btn-resend {
+  font-size: 20px;
+}
+
+/* link expired */
+
+.linkexpired {
+  display: flex;
+  align-items: center;
+  height: 80vh;
+}
+.linkexpired .row {
+  width: 100%;
+}
+.linkexpired .background img {
+  width: 100%;
+}
+.linkexpired .boxLinkSent {
+  background-color: #ffffff;
+  box-shadow: 0 30px 30px 0 rgba(102, 137, 163, 0.08);
+  padding: 60px 80px;
+}
+.linkexpired .boxLinkSent img {
+  margin-bottom: 15px;
+}
+.linkexpired .boxLinkSent .headTitle {
+  margin-bottom: 15px;
+  color: #92a1b6;
+  font-size: 40px;
+  font-family: "Cairo";
+  text-transform: capitalize;
+}
+.linkexpired .boxLinkSent .content {
+  margin-bottom: 30px;
+  color: #92a1b6;
+  font-size: 16px;
+}
+.linkexpired .boxLinkSent .btn-resend {
+  font-size: 20px;
+}
+
+/* forget password */
+
+.forgot-password {
+  display: flex;
+  align-items: center;
+  height: 80vh;
+  width: 100% !important;
+}
+@media (max-width: 767.98px) {
+  .forgot-password {
+    height: 100vh;
+  }
+}
+.forgot-password .row {
+  width: 100%;
+}
+.forgot-password .div-space {
+  margin-right: auto;
+}
+.forgot-password .forgot-content {
+  padding-top: 30px;
+}
+.forgot-password .forgot-content .title {
+  color: #4b4e6d;
+  font-family: "Cairo";
+  font-size: 60px;
+  text-transform: uppercase;
+}
+.forgot-password .div-forgot .input-div {
+  margin-bottom: 30px;
+}
+.forgot-password .div-forgot .remembere {
+  text-align: right;
+  display: block;
+  text-decoration: none;
+  color: #4b4e6d;
+  font-size: 16px;
+}
+.forgot-password .div-forgot .btn-continue {
+  margin-top: 30px;
+}

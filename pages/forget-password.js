@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import Input from "../components/shared/Input";
+import getError from "../lib/getError";
 
-const ForgetPassword = () => {
+const ForgetPassword = ({ error }) => {
+  const errObj = JSON.parse(error);
   return (
     <div className="forgot-password container">
       <div className="row">
@@ -14,8 +16,11 @@ const ForgetPassword = () => {
         <div className="col-xl-4 col-md-6 ">
           <form className="div-forgot" method="POST" action="/ForgetPasswordRequest">
             <Input type="text" name="email" placeholder="type in your mail" label="Email" />
+            {getError(errObj.error, "email") && (
+              <div className="text-red-400">{getError(errObj.error, "email")}</div>
+            )}
             <Link href="/">
-              <a className="remembere">Remembered Password ?</a>
+              <a className="remembere font-bold mb-2">Remembered Password ?</a>
             </Link>
             <button className="btn Rectangle-608 log-in d-block w-100 ">Continue</button>
           </form>
@@ -24,5 +29,9 @@ const ForgetPassword = () => {
     </div>
   );
 };
+
+export async function getServerSideProps({ query }) {
+  return { props: { error: JSON.stringify(query) } };
+}
 
 export default ForgetPassword;

@@ -31,8 +31,8 @@ const LoginForm = ({ error, body, apiErrors }) => {
         onChange={handleChange}
         apiError={getApiError(apiErrors, "Password")}
       />
-      <div className="d-flex justify-content-between">
-        <div className="form-check mt-3">
+      <div className="flex items-center justify-between">
+        <div className="form-check">
           <input
             type="checkbox"
             name="stayloggedin"

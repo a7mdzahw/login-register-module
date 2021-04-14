@@ -6,8 +6,8 @@ const Signuplayout = ({ step, children }) => {
       case 1:
         return (
           <h1 className="Title_signup">
-            SET UP YOUR FREE TRIAL OF{" "}
-            <img src="/img/dexef_logo.svg" alt="logo" height="40px" style={{ paddingBottom: 10 }} />
+            SET UP YOUR FREE <br /> TRIAL OF{" "}
+            <img src="/img/dexef_logo.svg" alt="logo" className="inline mb-1 mx-2" />
           </h1>
         );
         break;
@@ -22,9 +22,12 @@ const Signuplayout = ({ step, children }) => {
     }
   }
   return (
-    <div className="container row justify-content-between align-items-center" style={{ height: "75vh" }}>
+    <div
+      className="container row justify-content-between align-items-center"
+      style={{ height: "75vh" }}
+    >
       <div className="title col">
-        <div style={{ maxWidth: 400 }}>{content()}</div>
+        <div className="max-w-md">{content()}</div>
         <ul className="nav nav-pills d-flex gap-5 mt-3">
           <li className="nav-item">
             <a className={step === 1 ? " Rectangle-700 log-in" : "step"} aria-current="page">

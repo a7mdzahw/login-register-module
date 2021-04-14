@@ -13,16 +13,18 @@ const Signup = ({ step, error, js }) => {
       <Head>
         <title>Sign Up</title>
       </Head>
-      <Signuplayout step={step}>
-        {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
-        <Step1Form
-          error={errObj.error}
-          body={errObj.body}
-          apiErrors={errObj.apiErrors}
-          phoneError={errObj.phoneError}
-          js={js}
-        />
-      </Signuplayout>
+      <div className="flex flex-col lg:flex-row">
+        <Signuplayout step={step}>
+          {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
+          <Step1Form
+            error={errObj.error}
+            body={errObj.body}
+            apiErrors={errObj.apiErrors}
+            phoneError={errObj.phoneError}
+            js={js}
+          />
+        </Signuplayout>
+      </div>
     </div>
   );
 };
@@ -30,11 +32,18 @@ const Signup = ({ step, error, js }) => {
 export const getServerSideProps = async ({ req, res, query }) => {
   // checking login state and redirect if logged in
   if (req.cookies.email) return { redirect: { destination: "/", fallback: "blocking" } };
-  if (req.cookies.phoneValidationToken) return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
+  if (req.cookies.phoneValidationToken)
+    return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
   // fetching current step from server
   try {
     const { data } = await http.post("/signup");
-    return { props: { step: query.step || data.step, error: JSON.stringify(query), js: query.js || "true" } };
+    return {
+      props: {
+        step: query.step || data.step,
+        error: JSON.stringify(query),
+        js: query.js || "true",
+      },
+    };
   } catch (err) {
     return { props: { step: query.step, error: JSON.stringify(query), js: query.js || "true" } };
   }

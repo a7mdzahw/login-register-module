@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = ({ user }) => {
   return (
-    <nav className="navbar navbar-expand bg">
+    <nav className="navbar navbar-expand bg shadow-sm">
       <div className="container">
         <Link href="/">
           <a className="navbar-brand fs-3 fw-bold">
@@ -15,12 +15,12 @@ const Navbar = ({ user }) => {
             <>
               <li className="nav-item">
                 <Link href="/login">
-                  <a className="nav-link  Rectangle-609 log-in-nav me-1"> Log In</a>
+                  <a className="nav-link  Rectangle-609 log-in-nav px-4 me-1"> Log In</a>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link href="/signup">
-                  <a className="nav-link Rectangle-608 log-in">sign up</a>
+                  <a className="nav-link Rectangle-608 log-in px-4 bg-blue-500">sign up</a>
                 </Link>
               </li>
             </>

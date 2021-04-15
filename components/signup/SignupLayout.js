@@ -22,33 +22,39 @@ const Signuplayout = ({ step, children }) => {
     }
   }
   return (
-    <div
-      className="container row justify-content-between align-items-center"
-      style={{ height: "75vh" }}
-    >
-      <div className="title col">
-        <div className="max-w-md">{content()}</div>
-        <ul className="nav nav-pills d-flex gap-5 mt-3">
-          <li className="nav-item">
-            <a className={step === 1 ? " Rectangle-700 log-in" : "step"} aria-current="page">
-              1
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className={step === 2 ? " Rectangle-700 log-in" : "step"} aria-current="page">
-              2
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className={step === 3 ? " Rectangle-700 log-in" : "step"} aria-current="page">
-              3
-            </a>
-          </li>
-        </ul>
+    <div className="lg:flex justify-between item-center pt-8 lg:pt-32">
+      <div className="title lg:w-1/2">
+        <div className="max-w-md">
+          {content()}
+          <ul className="nav nav-pills d-flex gap-5 mt-3">
+            <li className="nav-item">
+              <a
+                className={step === 1 ? " Rectangle-700 log-in" : "step"}
+                aria-current="page"
+              >
+                1
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className={step === 2 ? " Rectangle-700 log-in" : "step"}
+                aria-current="page"
+              >
+                2
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className={step === 3 ? " Rectangle-700 log-in" : "step"}
+                aria-current="page"
+              >
+                3
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="col" style={{ minWidth: 400 }}>
-        {children}
-      </div>
+      <div className="lg:w-1/2">{children}</div>
     </div>
   );
 };

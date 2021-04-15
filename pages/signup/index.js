@@ -13,9 +13,11 @@ const Signup = ({ step, error, js }) => {
       <Head>
         <title>Sign Up</title>
       </Head>
-      <div className="flex flex-col lg:flex-row">
+      <div>
         <Signuplayout step={step}>
-          {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
+          {errObj.serverError && (
+            <div className="alert alert-danger">{errObj.serverError}</div>
+          )}
           <Step1Form
             error={errObj.error}
             body={errObj.body}
@@ -45,7 +47,9 @@ export const getServerSideProps = async ({ req, res, query }) => {
       },
     };
   } catch (err) {
-    return { props: { step: query.step, error: JSON.stringify(query), js: query.js || "true" } };
+    return {
+      props: { step: query.step, error: JSON.stringify(query), js: query.js || "true" },
+    };
   }
 };
 

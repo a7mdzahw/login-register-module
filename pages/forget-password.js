@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 import Input from "../components/shared/Input";
 import getError from "../lib/getError";
 
-const ForgetPassword = ({ error }) => {
-  const errObj = JSON.parse(error);
+const ForgetPassword = ({ error: errObj }) => {
+  const { error, body } = JSON.parse(errObj);
+  const [data, setData] = useState({ ...body });
   return (
-    <div className="forgot-password container">
+    <div className="forgot-password container pt-8 lg:pt-32">
+      <Head>
+        <title>Forget Password</title>
+      </Head>
       <div className="row">
         <div className="col-xl-5 col-md-6 div-space">
           <div className="forgot-content">
@@ -15,10 +20,15 @@ const ForgetPassword = ({ error }) => {
         </div>
         <div className="col-xl-4 col-md-6 ">
           <form className="div-forgot" method="POST" action="/ForgetPasswordRequest">
-            <Input type="text" name="email" placeholder="type in your mail" label="Email" />
-            {getError(errObj.error, "email") && (
-              <div className="text-red-400">{getError(errObj.error, "email")}</div>
-            )}
+            <Input
+              type="text"
+              name="email"
+              value={data.email}
+              onChange={setData}
+              placeholder="type in your mail"
+              error={getError(error, "email")}
+              label="Email"
+            />
             <Link href="/">
               <a className="remembere font-bold mb-2">Remembered Password ?</a>
             </Link>

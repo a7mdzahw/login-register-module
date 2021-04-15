@@ -1,8 +1,22 @@
 import React from "react";
+import Head from "next/head";
+import PasswordSuccess from "../components/utils/PasswordSuccess";
 
-const JSBlank = () => {
+const PasswordReseted = () => {
   return (
-    <div className="JavaScript-Blank">
+    <div className="flex mt-12 items-center justify-center">
+      <Head>
+        <title>Success</title>
+      </Head>
+      <PasswordSuccess />
+    </div>
+  );
+};
+
+export default PasswordReseted;
+
+/*
+<div className="JavaScript-Blank">
       <img src="/link_sent_art.svg" className="link_sent_art" />
       <div className="Rectangle-685">
         <img src="/delet_trai_acc.svg" className="delet_trai_acc" />
@@ -11,7 +25,8 @@ const JSBlank = () => {
           it seem that <span className="text-style-1">javaScript</span> is disabled on your browser
         </p>
         <p className="Content_signup">
-          enable JavaScript on <span className="text-style-2 ">Google Chrome, Firefox, Microsoft Edge.</span>{" "}
+          enable JavaScript on{" "}
+          <span className="text-style-2 ">Google Chrome, Firefox, Microsoft Edge.</span>{" "}
         </p>
       </div>
       <style jsx>
@@ -71,8 +86,4 @@ const JSBlank = () => {
         `}
       </style>
     </div>
-  );
-};
-
-export default JSBlank;
-<style jsx></style>;
+*/

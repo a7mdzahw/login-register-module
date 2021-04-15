@@ -248,13 +248,10 @@ input:hover {
 .forgot-password {
   display: flex;
   align-items: center;
-  height: 80vh;
+  height: 75vh;
   width: 100% !important;
 }
 @media (max-width: 767.98px) {
-  .forgot-password {
-    height: 100vh;
-  }
 }
 .forgot-password .row {
   width: 100%;
@@ -262,9 +259,7 @@ input:hover {
 .forgot-password .div-space {
   margin-right: auto;
 }
-.forgot-password .forgot-content {
-  padding-top: 30px;
-}
+
 .forgot-password .forgot-content .title {
   color: #4b4e6d;
   font-family: "Cairo";

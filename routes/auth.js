@@ -42,6 +42,7 @@ module.exports = function (next) {
         res.redirect("/");
       }
     } catch (err) {
+      console.log(err.response?.data || err.message);
       return next.render(req, res, "/login", { serverError: (err.response && err.response.data) || err.message });
     }
   });
@@ -62,7 +63,7 @@ module.exports = function (next) {
 
   router.post("/EmailVerificationCountDown/:id", async (req, res) => {
     let id = req.params.id;
-    console.log(id);
+    console.log("resend", id);
     http
       .get("/EmailVerificationCountDown?UserId=" + id)
       .then(({ data }) => {

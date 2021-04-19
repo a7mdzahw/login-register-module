@@ -15,9 +15,7 @@ const Signup = ({ step, error, js }) => {
       </Head>
       <div>
         <Signuplayout step={step}>
-          {errObj.serverError && (
-            <div className="alert alert-danger">{errObj.serverError}</div>
-          )}
+          {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
           <Step1Form
             error={errObj.error}
             body={errObj.body}
@@ -34,8 +32,7 @@ const Signup = ({ step, error, js }) => {
 export const getServerSideProps = async ({ req, res, query }) => {
   // checking login state and redirect if logged in
   if (req.cookies.email) return { redirect: { destination: "/", fallback: "blocking" } };
-  if (req.cookies.phoneValidationToken)
-    return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
+  if (req.cookies.phoneValidationToken) return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
   // fetching current step from server
   try {
     const { data } = await http.post("/signup");

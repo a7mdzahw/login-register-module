@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Countdown, { zeroPad } from "react-countdown";
 import getApiError from "../../lib/getApiError";
 import getError from "../../lib/getError";
-
+import useLang from "../../context/LangContext";
 import Input from "../shared/Input";
-import Countdown, { zeroPad } from "react-countdown";
 
 const Step2Form = ({ error, apiErrors, millseconds }) => {
+  const [isDisabled, setIsDisabled] = useState(true);
+  const { lang, local } = useLang();
+
+  const handleButtonState = () => {
+    if (typeof window === "undefined") return;
+    const input = document.querySelector("#verifyCode");
+    return input.value.length < 5 ? setIsDisabled(true) : setIsDisabled(false);
+  };
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
-        <a className="btn-timer btn-blue" disabled={false} href="/signup/finish">
-          skip
+        <a className="btn-timer text-blue-600" disabled={false} href="/signup/finish">
+          {local.varifyPhoneBtnSkip[lang]}
         </a>
       );
     } else {
@@ -27,22 +35,24 @@ const Step2Form = ({ error, apiErrors, millseconds }) => {
   };
   return (
     <>
-      <form action="/signup2" method="POST">
+      <form action="/signup2" method="POST" className="w-full">
         <Input
           type="text"
           name="verifyCode"
-          label="Verfiy Code"
+          onChange={() => handleButtonState()}
+          label={local.varifyPhoneVerifyCode[lang]}
           error={getError(error, "verifyCode")}
           apiError={getApiError(apiErrors, "VerifyCode")}
         />
-        <div className="row align-items-center ms-1">
-          <button className="btn Rectangle-608 log-in col-8">Verify</button>
-          <div className="col-4">
-            <Countdown date={Date.now() + millseconds} renderer={renderer} />
-          </div>
+        <div className="flex space-x-12 justify-between items-center">
+          <button className="btn Rectangle-608 log-in col-8" disabled={isDisabled}>
+            {local.varifyPhoneBtnVerify[lang]}
+          </button>
+          <Countdown date={Date.now() + millseconds} renderer={renderer} />
         </div>
       </form>
 
+      {/* to be removed */}
       <Link href="/signup/finish">
         <a className="btn btn-primary mt-4">Skip</a>
       </Link>

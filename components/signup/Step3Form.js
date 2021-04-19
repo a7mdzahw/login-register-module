@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import useLang from "../../context/LangContext";
 import getApiError from "../../lib/getApiError";
 import getError from "../../lib/getError";
 
 import Input from "../shared/Input";
 
 const Step3Form = ({ error, body, apiErrors }) => {
+  const { lang, local } = useLang();
   const [data, setData] = useState({ ...body });
   const handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
@@ -12,7 +14,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
     <form action="/signup3" method="POST" noValidate>
       <Input
         name="companyName"
-        label="Company Name"
+        label={local.accountInfoCompnayName[lang]}
         value={data.companyName}
         onChange={handleChange}
         error={getError(error, "companyName")}
@@ -21,7 +23,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
       <div className="d-flex gap-1 justify-content-between">
         <Input
           name="workField"
-          label="Work Field"
+          label={local.accountInfoField[lang]}
           className="dim-label"
           placeholder="choose field"
           type="number"
@@ -34,7 +36,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
           className="dim-label"
           placeholder="choose size"
           name="companySize"
-          label="Company Size"
+          label={local.accountInfoCompanySize[lang]}
           type="number"
           value={data.companySize}
           onChange={handleChange}
@@ -44,7 +46,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
       </div>
       <Input
         name="subDomain"
-        label="Subdomain Suggestion"
+        label={local.accountInfoSubDomin[lang]}
         value={data.subDomain}
         onChange={handleChange}
         error={getError(error, "subDomain")}
@@ -53,7 +55,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
       <div style={{ margin: "50px 0" }}></div>
       <Input
         name="email"
-        label="Email Address"
+        label={local.accountInfoEmail[lang]}
         value={data.email}
         onChange={handleChange}
         error={getError(error, "email")}
@@ -61,22 +63,22 @@ const Step3Form = ({ error, body, apiErrors }) => {
       />
       <Input
         name="password"
-        label="Password"
+        label={local.accountInfoPassword[lang]}
         type="password"
         value={data.password}
         onChange={handleChange}
         error={getError(error, "password")}
         apiError={getApiError(apiErrors, "Password")}
       />
-      <label className="fs-6">Use 8 or more characters with a mix of letters, numbers & symbols.</label>
+      <label className="fs-6">{local.accountInfoPasswordInfo[lang]}</label>
       <Input
         name="confirmpassword"
-        label="Confirm Password"
+        label={local.accountInfoConfirmPassword[lang]}
         value={data.confirmpassword}
         onChange={handleChange}
         error={getError(error, "confirmpassword")}
       />
-      <button className="btn Rectangle-608 log-in d-block w-100">Let's Go</button>
+      <button className="btn Rectangle-608 log-in d-block w-100">{local.accountInfoBtn[lang]}</button>
     </form>
   );
 };

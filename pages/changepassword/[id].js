@@ -10,6 +10,8 @@ const VerifyPassword = ({ currentPage, token, error }) => {
       case "ChangePassword":
         return <ChangePassword token={token} error={errObj.error} body={errObj.body} />;
         break;
+      case "ServerDown":
+        return <h2 className="text-danger fs-2">Server Error</h2>;
       default:
         return <h1>Loading...</h1>;
     }
@@ -28,9 +30,7 @@ export async function getServerSideProps({ params, query }) {
   const changePasswordToken = params.id;
 
   try {
-    const { data } = await http.get(
-      "/ValidateForgetPasswordToken?Token=" + changePasswordToken
-    );
+    const { data } = await http.get("/ValidateForgetPasswordToken?Token=" + changePasswordToken);
     console.log("result ", data);
     if (data.state.code === "Status-System-1013") {
       return {
@@ -40,7 +40,7 @@ export async function getServerSideProps({ params, query }) {
           error: JSON.stringify(query),
         },
       };
-    } else if (data.errors[0].code === "Error-System-1008") {
+    } else {
       return {
         redirect: {
           destination: "/not_found",
@@ -52,8 +52,7 @@ export async function getServerSideProps({ params, query }) {
     console.log(err.message);
     return {
       props: {
-        currentPage: "ChangePassword",
-        token: changePasswordToken,
+        currentPage: "ServerDown",
         error: JSON.stringify(query),
       },
     };

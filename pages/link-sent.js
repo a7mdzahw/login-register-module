@@ -3,20 +3,18 @@ import React from "react";
 import Head from "next/head";
 import CountDown, { zeroPad } from "react-countdown";
 import http from "../lib/clientHttp";
+import useLang from "../context/LangContext";
 
 function LinkSent({ time }) {
-  console.log(time);
+  const { lang, local } = useLang();
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
         <>
           <span className="countDown">00:00:00</span>
           <form action="/ResendEmailVerification" method="POST">
-            <button
-              className="btn Rectangle-608 log-in btn-resend btn-block btn-blue"
-              disabled={false}
-            >
-              Resend
+            <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={false}>
+              {local.linkSentBtn[lang]}
             </button>
           </form>
         </>
@@ -25,14 +23,9 @@ function LinkSent({ time }) {
       // Render a countdown
       return (
         <>
-          <span className="countDown">{`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(
-            seconds
-          )}`}</span>
-          <button
-            className="btn Rectangle-608 log-in btn-resend btn-block btn-blue"
-            disabled={true}
-          >
-            Resend
+          <span className="countDown">{`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(seconds)}`}</span>
+          <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={true}>
+            {local.linkSentBtn[lang]}
           </button>
         </>
       );
@@ -54,15 +47,9 @@ function LinkSent({ time }) {
           <div className="col-lg-6 col-12">
             <div className="boxLinkSent text-center">
               <img src="/img/link_sent.svg" alt="icon" />
-              <h2 className="headTitle">Link Sent</h2>
-              <p className="content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa sed iste
-                quia accusamus laborum eos ullam est beatae consequuntur aut.
-              </p>
-              <CountDown
-                date={Date.now() + (time * 60 * 1000 - 1000)}
-                renderer={renderer}
-              />
+              <h2 className="headTitle">{local.linkSentTitle[lang]}</h2>
+              <p className="content">{local.linkSentContent[lang]}</p>
+              <CountDown date={Date.now() + (time * 60 * 1000 - 1000)} renderer={renderer} />
             </div>
           </div>
         </div>
@@ -72,11 +59,9 @@ function LinkSent({ time }) {
 }
 
 export async function getServerSideProps({ req, res, query }) {
-  if (!req.cookies.token)
-    return { redirect: { destination: "/signup", fallback: "blocking" } };
+  if (!req.cookies.token) return { redirect: { destination: "/signup", fallback: "blocking" } };
   const user = jwtDecode(req.cookies.token);
-  if (user.email_verified)
-    return { redirect: { destination: "/login", fallback: "blocking" } };
+  if (user.email_verified) return { redirect: { destination: "/login", fallback: "blocking" } };
   try {
     const { data } = await http.post(`/EmailVerificationCountDown/${user.sub}`);
     return { props: { time: data.time } };

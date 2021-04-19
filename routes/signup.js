@@ -33,7 +33,7 @@ module.exports = function signup(next) {
   // handling step 1 of signup process
   router.post("/signup1", async (req, res) => {
     const country = countries.find((c) => c.code === req.body.countryCode);
-    const { error } = validateStep1(req.body);
+    const { error } = validateStep1(req.body, req.cookies.lang);
     const isValid = isValidPhoneNumber(req.body.phone);
 
     if (!isValid || error) {
@@ -44,12 +44,14 @@ module.exports = function signup(next) {
     }
     try {
       const { data } = await http.post("/PreRegisteration", { ...req.body, country: country.name });
+      console.log(data);
       if (await checkValidaty(data, "/signup", req, res, next)) return;
       req.session.preRegisterData = req.body;
       req.session.validatePhoneToken = data.response.verifyPhoneToken;
       res.cookie("validatePhoneToken", data.response.verifyPhoneToken);
       res.redirect("/signup/verify_code");
     } catch (err) {
+      console.log(err.message);
       next.render(req, res, "/signup", { serverError: "Server Error Please Try Later" });
     }
   });
@@ -70,7 +72,6 @@ module.exports = function signup(next) {
   router.post("/signup3", async (req, res) => {
     if (await check(validateStep3, "/signup/finish", req, res, next)) return;
     const { phoneValidationToken, preRegisterData } = req.session;
-    console.log(phoneValidationToken);
     http
       .post("/SignUp", {
         ...req.body,

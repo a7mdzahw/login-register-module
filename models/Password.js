@@ -1,20 +1,20 @@
 const joi = require("joi");
+const local = require("../public/assets/Localization.json");
 
-module.exports = function validatePassword(passwords) {
+module.exports = function validatePassword(passwords, lang) {
   const schema = joi.object({
     password: joi
       .string()
-      .label("Password")
-      .required()
       .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
-      .rule({
-        message: "Password must be at least 8 charachter, Captial ,special character",
+      .messages({
+        "string.empty": local.changePasswordErrPassword[lang],
+        "string.pattern.base": local.changePasswordErrPassword[lang],
       }),
     confirmPassword: joi
       .any()
       .equal(joi.ref("password"))
       .required()
-      .messages({ "any.only": "passwords didn't match" }),
+      .messages({ "any.only": local.changePasswordErrConfirmPassword[lang] }),
   });
 
   return schema.validate(passwords, { abortEarly: false });

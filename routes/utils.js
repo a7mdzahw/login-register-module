@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Joi = require("joi");
+const local = require("../public/assets/Localization.json");
 
 const http = require("../lib/serverHttp");
 const check = require("../lib/check");
@@ -20,17 +21,20 @@ module.exports = function (next) {
 
   router.post("/ChangePassword/:token", async (req, res) => {
     const token = req.params.token;
-    console.log(req.body);
     if (await check(validatePassword, `/changepassword/${token}`, req, res, next)) return;
 
     let reSetpasswordObj = {
       resetToken: token,
       newPassword: req.body.password,
     };
-
-    const { data } = await http.post("/ForgetPassword", reSetpasswordObj);
-    if (await checkValidaty(data, `/changepassword/${token}`, req, res, next)) return;
-    res.redirect("/password_reset_success");
+    try {
+      const { data } = await http.post("/ForgetPassword", reSetpasswordObj);
+      if (await checkValidaty(data, `/changepassword/${token}`, req, res, next)) return;
+      res.redirect("/password-reset-success");
+    } catch (error) {
+      console.log(error);
+      res.redirect("/error");
+    }
   });
 
   return router;
@@ -38,9 +42,18 @@ module.exports = function (next) {
 
 const checkEmail = async (email, req, res, next) => {
   const schema = Joi.object({
-    email: Joi.string().email().required(),
+    email: Joi.string()
+      .required()
+      .regex(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+      .messages({
+        "any.required": local.forgotErrEmail[req.cookies.lang],
+        "string.pattern.base": local.forgotErrEmail[req.cookies.lang],
+      }),
   });
   const { error } = schema.validate({ email });
+
   if (error) {
     next.render(req, res, "/forget-password", { error, body: { email } });
     return true;
@@ -58,6 +71,6 @@ const forget_password_request = async (email, req, res, next) => {
     res.redirect("/link-sent-password");
   } catch (err) {
     console.log(err.message);
-    res.send({ err, status: "invalid_email" });
+    return next.render(req, res, "/forget-password", { serverError: err.response?.data || err.message });
   }
 };

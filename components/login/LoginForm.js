@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import local from "../../public/assets/Localization.json";
 
 import Input from "../shared/Input";
 import getError from "../../lib/getError";
 import getApiError from "../../lib/getApiError";
+import useLang from "../../context/LangContext";
 
 const LoginForm = ({ error, body, apiErrors }) => {
+  const { lang, local } = useLang();
   const [data, setData] = useState({ ...body, stayloggedin: (body && body.stayloggedin) || "" });
   const handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
@@ -13,9 +16,9 @@ const LoginForm = ({ error, body, apiErrors }) => {
     <form action="/login" method="POST" noValidate style={{ minWidth: 450, maxWidth: 600 }}>
       <Input
         name="userName"
-        label="Email"
+        label={local.loginEmail[lang]}
         type="email"
-        placeholder="add mail"
+        placeholder={local.loginEmailPlacHolder[lang]}
         error={getError(error, "userName")}
         value={data.userName}
         onChange={handleChange}
@@ -23,8 +26,8 @@ const LoginForm = ({ error, body, apiErrors }) => {
       />
       <Input
         name="password"
-        label="Password"
-        placeholder="enter password"
+        label={local.loginPassword[lang]}
+        placeholder={local.loginPasswordPlacHolder[lang]}
         type="password"
         error={getError(error, "password")}
         value={data.password}
@@ -42,19 +45,19 @@ const LoginForm = ({ error, body, apiErrors }) => {
             onChange={(e) => setData({ ...data, stayloggedin: e.target.checked })}
           />
           <label htmlFor="stayloggedin" className="form-check-label fw-bold">
-            Stay Logged In
+            {local.loginStaySigned[lang]}
           </label>
         </div>
         <Link href="/forget-password">
-          <a className="fw-bold p-0 m-0 text-decoration-none">Forget Password ?</a>
+          <a className="fw-bold p-0 m-0 text-decoration-none">{local.loginForgetPassword[lang]}</a>
         </Link>
       </div>
 
-      <button className="btn  d-block w-100 my-2 Rectangle-608 log-in">Log In</button>
+      <button className="btn d-block w-100 my-2 Rectangle-608 log-in">{local.loginBtn[lang]}</button>
       <div className="mt-2 text-center signup_text">
-        don't have an account yet ?{" "}
+        {local.loginDontHaveAcc[lang]}{" "}
         <Link href="/signup">
-          <a className="text-style-1">sign up</a>
+          <a className="text-style-1">{local.loginSignUp[lang]}</a>
         </Link>
       </div>
     </form>

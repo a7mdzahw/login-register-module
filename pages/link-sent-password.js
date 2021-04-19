@@ -1,19 +1,19 @@
 import React from "react";
 import Head from "next/head";
+import http from "../lib/clientHttp";
 import CountDown, { zeroPad } from "react-countdown";
+import useLang from "../context/LangContext";
 
 const LinkSentPassword = ({ someErr, time }) => {
+  const { lang, local } = useLang();
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
         <>
           <span className="countDown">00:00:00</span>
           <form action="/ForgetPasswordRequest" method="POST">
-            <button
-              className="btn Rectangle-608 log-in btn-resend btn-block btn-blue"
-              disabled={false}
-            >
-              Resend
+            <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={false}>
+              {local.linkSentBtn[lang]}
             </button>
           </form>
         </>
@@ -25,11 +25,8 @@ const LinkSentPassword = ({ someErr, time }) => {
           <span className="countDown">
             {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
           </span>
-          <button
-            className="btn Rectangle-608 log-in btn-resend btn-block btn-blue"
-            disabled={true}
-          >
-            Resend
+          <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={true}>
+            {local.linkSentBtn[lang]}
           </button>
         </>
       );
@@ -50,20 +47,11 @@ const LinkSentPassword = ({ someErr, time }) => {
           <div className="col-lg-6 col-12">
             <div className="boxLinkSent text-center flex flex-col gap-1 items-center justify-center">
               <img src="/img/link_sent.svg" alt="icon" />
-              <h2 className="headTitle">Link Sent</h2>
-              <p className="content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ad
-                recusandae, similique rem eligendi minima impedit exercitationem quia
-                aliquid beatae.
-              </p>
-              <CountDown
-                date={Date.now() + time * 60 * 1000 - 1000}
-                renderer={renderer}
-              />
+              <h2 className="headTitle">{local.linkSentTitle[lang]}</h2>
+              <p className="content">{local.linkSentContent[lang]}</p>
+              <CountDown date={Date.now() + time * 60 * 1000 - 1000} renderer={renderer} />
             </div>
-            {someErr && (
-              <div className="alert alert-danger">Something Error Occurred</div>
-            )}
+            {someErr && <div className="alert alert-danger">Something Error Occurred</div>}
           </div>
         </div>
       </div>

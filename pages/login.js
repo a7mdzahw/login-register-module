@@ -15,6 +15,7 @@ const Login = ({ error }) => {
       <Head>
         <title>Login</title>
       </Head>
+
       <div className="container lg:flex justify-between pt-8 items-center lg:pt-32">
         <h1 className="fw-bold Title_signup lg:max-w-lg xl:max-w-xl">
           {local.loginHedTitle[lang]}

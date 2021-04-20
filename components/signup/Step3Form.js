@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import useLang from "../../context/LangContext";
 import getApiError from "../../lib/getApiError";
 import getError from "../../lib/getError";
-
+import http from "../../lib/serverHttp";
 import Input from "../shared/Input";
+
+export const email_validation = (email) => {
+  const regularExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regularExp.test(String(email).toLowerCase());
+};
 
 const Step3Form = ({ error, body, apiErrors }) => {
   const { lang, local } = useLang();
@@ -85,3 +90,19 @@ const Step3Form = ({ error, body, apiErrors }) => {
 };
 
 export default Step3Form;
+
+// const emailHandler = (e, inputName) => {
+//   let email = e.target.value;
+//   let validEmail = email_validation(email);
+
+//   validEmail
+//     ? http.post(`/CheckEmailNotExist?Email=${email}`).then((res) => {
+//         console.log("Email result: ", res.data);
+//         let noErrorsExisting = methods.response_has_errors(res.data);
+//         if (noErrorsExisting) {
+//           document.getElementById("email").classList.remove("error");
+//           this.setState({ [inputName]: true });
+//         }
+//       })
+//     : this.setState({ [inputName]: validEmail });
+// };

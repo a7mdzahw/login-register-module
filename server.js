@@ -36,6 +36,8 @@ app
     server.use("/", utils(app));
     // next pages
     server.get("*", router, (req, res) => {
+      const lang = req.cookies.lang;
+      if (!lang) res.cookie("lang", "en");
       return handle(req, res);
     });
     // server listening

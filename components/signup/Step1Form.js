@@ -82,18 +82,6 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
           </Link>
         </div>
       </form>
-      {js === "true" && (
-        <noscript>
-          <div className="alert alert-warning mt-2">
-            <img src="/delet_trai_acc.svg" alt="alert" className="me-2" />
-            Please enable javascript for better experience
-            <form action="/signup" method="GET">
-              <input className="visually-hidden" type="text" value="false" name="js" onChange={handleChange} />
-              <button className="btn btn-danger mt-1 d-block w-100">Agree and Close</button>
-            </form>
-          </div>
-        </noscript>
-      )}
     </>
   );
 };

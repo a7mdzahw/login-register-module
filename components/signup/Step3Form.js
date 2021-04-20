@@ -70,7 +70,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
         error={getError(error, "password")}
         apiError={getApiError(apiErrors, "Password")}
       />
-      <label className="fs-6">{local.accountInfoPasswordInfo[lang]}</label>
+      <label className="text-sm">{local.accountInfoPasswordInfo[lang]}</label>
       <Input
         name="confirmpassword"
         type="password"

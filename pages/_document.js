@@ -1,9 +1,15 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const lang = ctx.req.cookies.lang;
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps, lang };
+  }
   render() {
+    const lang = this.props.lang;
     return (
-      <Html>
+      <Html dir={lang === "ar" ? "rtl" : "ltr"}>
         <Head>
           {/* adding styles and favicon */}
           <link rel="shortcut icon" href="/dexef.jpg" type="image/x-icon" />

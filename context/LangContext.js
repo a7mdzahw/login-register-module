@@ -16,7 +16,6 @@ const handleHTMLDir = (lang) => {
 
 export const LangContextProvider = ({ children, lang: serverLang }) => {
   const [lang, setLangCookie] = useCookie("lang");
-
   useEffect(() => {
     console.log(lang);
     handleHTMLDir(lang);

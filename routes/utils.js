@@ -11,6 +11,18 @@ const validatePassword = require("../models/Password");
 module.exports = function (next) {
   router.get("/ForgetPasswordRequest", (req, res) => res.redirect("/forget-password"));
 
+  router.get("/closeJSPopup", (req, res) => {
+    const redirectPath = req.query.redirect;
+    res.cookie("js", false);
+    return res.redirect(redirectPath);
+  });
+
+  router.post("/changeLang", (req, res) => {
+    const redirectPath = req.body.redirect;
+    res.cookie("lang", req.body.language);
+    res.redirect(redirectPath);
+  });
+
   router.post("/ForgetPasswordRequest", async (req, res) => {
     const email = req.body.email || req.session.email;
     if (!req.session.email) {

@@ -15,7 +15,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
       <Input
         name="companyName"
         label={local.accountInfoCompnayName[lang]}
-        value={data.companyName}
+        value={data.companyName || ""}
         onChange={handleChange}
         error={getError(error, "companyName")}
         apiError={getApiError(apiErrors, "Company Name")}
@@ -27,7 +27,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
           className="dim-label"
           placeholder="choose field"
           type="number"
-          value={data.workField}
+          value={data.workField || ""}
           onChange={handleChange}
           error={getError(error, "workField")}
           apiError={getApiError(apiErrors, "WorkField")}
@@ -38,7 +38,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
           name="companySize"
           label={local.accountInfoCompanySize[lang]}
           type="number"
-          value={data.companySize}
+          value={data.companySize || ""}
           onChange={handleChange}
           error={getError(error, "companySize")}
           apiError={getApiError(apiErrors, "CompanySize")}
@@ -47,7 +47,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
       <Input
         name="subDomain"
         label={local.accountInfoSubDomin[lang]}
-        value={data.subDomain}
+        value={data.subDomain || ""}
         onChange={handleChange}
         error={getError(error, "subDomain")}
         apiError={getApiError(apiErrors, "SubDomain")}
@@ -56,7 +56,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
       <Input
         name="email"
         label={local.accountInfoEmail[lang]}
-        value={data.email}
+        value={data.email || ""}
         onChange={handleChange}
         error={getError(error, "email")}
         apiError={getApiError(apiErrors, "Email")}
@@ -65,7 +65,7 @@ const Step3Form = ({ error, body, apiErrors }) => {
         name="password"
         label={local.accountInfoPassword[lang]}
         type="password"
-        value={data.password}
+        value={data.password || ""}
         onChange={handleChange}
         error={getError(error, "password")}
         apiError={getApiError(apiErrors, "Password")}
@@ -73,8 +73,9 @@ const Step3Form = ({ error, body, apiErrors }) => {
       <label className="fs-6">{local.accountInfoPasswordInfo[lang]}</label>
       <Input
         name="confirmpassword"
+        type="password"
         label={local.accountInfoConfirmPassword[lang]}
-        value={data.confirmpassword}
+        value={data.confirmpassword || ""}
         onChange={handleChange}
         error={getError(error, "confirmpassword")}
       />

@@ -1,6 +1,8 @@
 import React from "react";
+import useLang from "../../context/LangContext";
 
 const AccountVerified = () => {
+  const { lang, local } = useLang();
   return (
     <div className="accountVerified">
       <div className="container">
@@ -13,13 +15,10 @@ const AccountVerified = () => {
           <div className="col-lg-6 col-12">
             <div className="boxLinkSent text-center">
               <img src="/img/email_valid.svg" alt="icon" />
-              <h2 className="headTitle">Congratulations</h2>
-              <p className="content">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt voluptatum distinctio nemo. Non
-                expedita nam rerum tenetur, neque totam facilis.
-              </p>
+              <h2 className="headTitle">{local.linkVerifiedTitle[lang]}</h2>
+              <p className="content">{local.linkVerifiedContent[lang]}</p>
               <a className="btn btn-primary btn-blue btn-resend btn-block" href="/login">
-                Log In
+                {local.linkVerifiedBtn[lang]}
               </a>
             </div>
           </div>

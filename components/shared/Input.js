@@ -1,6 +1,8 @@
 import React from "react";
+import useLang from "../../context/LangContext";
 
 const Input = ({ label, name, value, onChange, error, apiError = [], className, ...props }) => {
+  const { lang, localErrs } = useLang();
   return (
     <div className="my-2">
       <label htmlFor={name} className={error || apiError.length > 0 ? "text-red-600 mb-1" : "mb-1"}>
@@ -22,7 +24,7 @@ const Input = ({ label, name, value, onChange, error, apiError = [], className, 
       {apiError.length > 0 && (
         <p className="text-danger">
           {apiError.map((apiErr) => (
-            <strong key={apiErr.description}>{apiErr.description}</strong>
+            <strong key={apiErr.description}>{localErrs[apiErr.code][lang]}</strong>
           ))}
         </p>
       )}

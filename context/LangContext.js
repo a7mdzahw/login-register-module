@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect } from "react";
 import local from "../public/assets/Localization.json";
+import localErrs from "../public/assets/errors-messages.json";
 import { useCookie } from "react-use";
 
 const LangContext = createContext();
@@ -21,7 +22,7 @@ export const LangContextProvider = ({ children, lang: serverLang }) => {
     handleHTMLDir(lang);
   }, [lang]);
   return (
-    <LangContext.Provider value={{ lang: lang || serverLang || "en", setLangCookie, local }}>
+    <LangContext.Provider value={{ lang: lang || serverLang || "en", setLangCookie, local, localErrs }}>
       {children}
     </LangContext.Provider>
   );

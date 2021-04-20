@@ -16,7 +16,13 @@ const Signup = ({ step, error, timeRemaining }) => {
       </Head>
       <div className="container d-flex justify-content-around align-items-center" style={{ height: "75vh" }}>
         <Signuplayout step={step}>
-          <Step2Form error={errObj.error} body={errObj.body} apiErrors={errObj.apiErrors} millseconds={millseconds} />
+          <Step2Form
+            error={errObj.error}
+            body={errObj.body}
+            apiErrors={errObj.apiErrors}
+            millseconds={millseconds}
+            serverError={errObj.serverError}
+          />
         </Signuplayout>
       </div>
     </div>

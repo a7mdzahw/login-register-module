@@ -45,7 +45,7 @@ function LinkSent({ time }) {
             </div>
           </div>
           <div className="col-lg-6 col-12">
-            <div className="boxLinkSent text-center">
+            <div className="boxLinkSent text-center flex flex-col space-y-2 items-center">
               <img src="/img/link_sent.svg" alt="icon" />
               <h2 className="headTitle">{local.linkSentTitle[lang]}</h2>
               <p className="content">{local.linkSentContent[lang]}</p>

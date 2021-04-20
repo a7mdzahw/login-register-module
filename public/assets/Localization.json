@@ -1,425 +1,424 @@
 {
-    "navLogin":{
-        "ar":"تسجيل الدخول",
-        "en":"login",
-        "fr":"connexion"
-    },
-    "navSignUp":{
-        "ar":"اشتراك",
-        "en":"sign Up",
-        "fr":"S'inscrire"
-    },
-    "navSignOut":{
-        "ar":"خروج",
-        "en":"sign out",
-        "fr":"se déconnecter"
-    },
-    "loginHedTitle":{
-        "ar":" قم بإعداد الإصدار التجريبي المجاني الخاص بك من",
-        "en":"SET UP YOUR FREE TRIAL OF ",
-        "fr":"CONFIGUREZ VOTRE ESSAI GRATUIT DE "
-    },
-    "loginEmail":{
-        "ar":"بريد الالكتروني",
-        "en":"Email",
-        "fr":"E-mail"
-    },
-    "loginPassword":{
-        "ar":"كلمة المرور",
-        "en":"Password",
-        "fr":"Mot de passe"
-    },
-    
-    "loginEmailPlacHolder":{
-        "ar":"اكتب بريدك الإلكتروني",
-        "en":"type in your email",
-        "fr":"saisissez votre email"
-    },
-    "loginPasswordPlacHolder":{
-        "ar":"لا تقل عن 8 أحرف",
-        "en":"not less that 8 characters",
-        "fr":"pas moins de 8 caractères"
-    },
-    
-    "loginErrEmail":{
-        "ar":"غير صحيح البريد الإلكتروني",
-        "en":"Incorrect Email",
-        "fr":"Adresse Email incorrecte"
-    },
-    "loginErrPassword":{
-        "ar":"كلمة سر خاطئة",
-        "en":"Incorrect password",
-        "fr":"Mot de passe incorrect"
-    },
-    "loginStaySigned":{
-        "ar":"ابق مسجلا الدخول",
-        "en":"Stay signed in",
-        "fr":"rester connecté"
-    },
-    "loginForgetPassword":{
-        "ar":"هل نسيت كلمة السر ؟",
-        "en":"Forgot password ?",
-        "fr":"Mot de passe oublié ?"
-    },
-    "loginDontHaveAcc":{
-        "ar":"لا تملك حسابا حتى الآن؟",
-        "en":"Don't have an account yet ?",
-        "fr":"Vous n'avez pas encore de compte?"
-    },
-    "loginSignUp":{
-        "ar":"اشتراك ؟",
-        "en":"signup ?",
-        "fr":"S'inscrire ?"
-    },
-    "loginBtn":{
-        "ar":"تسجيل دخول",
-        "en":"log in",
-        "fr":"connexion"
-    },
-    "footerContact":{
-        "ar":"اتصال",
-        "en":"Contact",
-        "fr":"Contact"
-    },
-    "footerPrivacy":{
-        "ar":"خصوصية",
-        "en":"Privacy",
-        "fr":"Vie privée"
-    },
-    "footerTerms":{
-        "ar":"تعليمات الاستخدام",
-        "en":"Terms of use",
-        "fr":"Conditions d'utilisation"
-    },
-    "footerAccessibility":{
-        "ar":"إمكانية الوصول",
-        "en":"Accessibility",
-        "fr":"Accessibilité"
-    },
-    "footerCookie":{
-        "ar":"تفضيلات ملفات تعريف الارتباط",
-        "en":"Cookie preferences",
-        "fr":"Préférences de cookies"
-    },
-    "footerCopyRight":{
-        "ar":"أنظمة Dexef ERP. كل الحقوق محفوظة.",
-        "en":"Dexef ERP systems. All rights reserved.",
-        "fr":"Systèmes ERP Dexef. Tous les droits sont réservés."
-        
-    },
-    "forgotHeadTitle":{
-        "ar":"أدخل بريدك الإلكتروني ورقم هاتفك",
-        "en":"ENTER YOUR EMAIL & PHONE NUMBER",
-        "fr":"ENTREZ VOTRE EMAIL ET VOTRE NUMÉRO DE TÉLÉPHONE"
-    },
-    "forgotEmail":{
-        "ar":"بريد الالكتروني",
-        "en":"Email",
-        "fr":"E-mail"
-    },
-    "forgotEmailPlacHolder":{
-        "ar":"اكتب بريدك الإلكتروني",
-        "en":"type in your email",
-        "fr":"saisissez votre email"
-    },
-    "forgotRemembered":{
-        "ar":"تذكر كلمة المرور ؟",
-        "en":"Remembered Password ?",
-        "fr":"Vous vous souvenez du mot de passe ?"
-    },
-    "forgotContinue":{
-        "ar":"استمر",
-        "en":"continue",
-        "fr":"Continuez"
-    },
-    "forgotErrEmail":{
-        "ar":"غير صحيح البريد الإلكتروني",
-        "en":"Incorrect Email",
-        "fr":"Adresse Email incorrecte"
-    },
-    "linkSentTitle":{
-        "ar":"تم إرسال الرابط",
-        "en":"Link Sent",
-        "fr":"Lien envoyé"
-    },
-    "linkSentContent":{
-        "ar":"تم إرسال بريد التحقق إلى صندوق البريد الخاص بك ، يرجى العلم أن البريد الإلكتروني الذي أرسلناه إليك ستنتهي صلاحيته في غضون 10 دقائق",
-        "en":"A validation mail Has Been Sent To Your Mailbox, Please be aware that, the email we have been sent to you will be expired within 10 minutes ",
-        "fr":"Un e-mail de validation a été envoyé à votre boîte aux lettres, veuillez noter que l'e-mail que nous vous avons envoyé sera expiré dans les 10 minutes"
-    },
-    "linkSentBtn":{
-        "ar":"إعادة إرسال",
-        "en":"Resend",
-        "fr":"Renvoyer"
-    },
-    "linkExpiredTitle":{
-        "ar":"انتهت صلاحية الرابط",
-        "en":"Link Expired",
-        "fr":"Le lien a expiré"
-    },
-    "linkExpiredContent":{
-        "ar":"تم إرسال بريد التحقق إلى صندوق البريد الخاص بك ، يرجى العلم أن البريد الإلكتروني الذي أرسلناه إليك ستنتهي صلاحيته في غضون 10 دقائق",
-        "en":"A validation mail Has Been Sent To Your Mailbox, Please be aware that, the email we have been sent to you will be expired within 10 minutes",
-        "fr":"Un e-mail de validation a été envoyé à votre boîte aux lettres, veuillez noter que l'e-mail que nous vous avons envoyé sera expiré dans les 10 minutes"
-    },
-    "linkExpiredBtn":{
-        "ar":"اعادة ارسال",
-        "en":"Resend",
-        "fr":"Renvoyer"
-    },
-    "linkVerifiedTitle":{
-        "ar":"تهانينا",
-        "en":"Congratulations",
-        "fr":"Toutes nos félicitations"
-    },
-    "linkVerifiedContent":{
-        "ar":"تم إرسال بريد التحقق إلى صندوق البريد الخاص بك ، يرجى العلم أن البريد الإلكتروني الذي أرسلناه إليك ستنتهي صلاحيته في غضون 10 دقائق وستنتهي صلاحيته في غضون 10 دقائق",
-        "en":"A validation mail Has Been Sent To, Please be aware that, the email we have been sent to you will be expired within 10 minutes have been sent to you will be expired within 10 minutes",
-        "fr":"Un e-mail de validation a été envoyé à votre boîte aux lettres, veuillez noter que l'e-mail que nous vous avons envoyé sera expiré dans les 10 minutes qui vous ont été envoyé sera expiré dans les 10 minutes"
-    },
-    "linkVerifiedBtn":{
-        "ar":"تسجيل دخول",
-        "en":"log in",
-        "fr":"connexion"
-    },
-    "signupTitle":{
-        "ar":"قم بإعداد الإصدار التجريبي المجاني الخاص بك من",
-        "en":"SET UP YOUR FREE TRIAL OF",
-        "fr":"CONFIGUREZ VOTRE ESSAI GRATUIT DE"
-    },
-    "signupFullName":{
-        "ar":"الاسم الكامل",
-        "en":"Full Name",
-        "fr":"Nom et prénom"
-    },
-    "signupErrFullName":{
-        "ar":"الاسم الكامل غير صالح",
-        "en":"not valid full name",
-        "fr":"nom complet non valide"
-    },
-    "signupCountry":{
-        "ar":"دولة",
-        "en":"Country",
-        "fr":"De campagne"
-    },
-    "signupErrCountry":{
-        "ar":"الرجاء اختيار دولة",
-        "en":"Please choose a country",
-        "fr":"Veuillez choisir un pays"
-    },
-    "signupPhoneNumber":{
-        "ar":"رقم الهاتف",
-        "en":"Phone Number",
-        "fr":"Numéro de téléphone"
-    },
-    "signupPhoneInfo":{
-        "ar":"سنستخدم رقمك لأمان الحساب. لن يكون مرئيًا للآخرين.",
-        "en":"We’ll use your number for account security. It won’t be visible to others.",
-        "fr":"Nous utiliserons votre numéro pour la sécurité de votre compte. Il ne sera pas visible pour les autres."
-    },
-    "signupErrPhone":{
-        "ar":"رقم الهاتف غير صالح",
-        "en":"not valid phone number",
-        "fr":"numéro de téléphone non valide"
-    },
-    "signupTerms1":{
-        "ar":"بالنقر فوق إرسال فإنك توافق على",
-        "en":"By clicking submit you agree to the",
-        "fr":"En cliquant sur Soumettre, vous acceptez le"
-    },
-    "signupTerms2":{
-        "ar":" شروط",
-        "en":"Terms ",
-        "fr":"termes "
-    },
-    "signupTerms3":{
-        "ar":" و",
-        "en":"And ",
-        "fr":"Et "
-    },
-    "signupTerms4":{
-        "ar":" شروط.",
-        "en":"Conditions. ",
-        "fr":"Conditions. "
-    },
-    "signupBtn":{
-        "ar":"قدم",
-        "en":"Submit",
-        "fr":"Nous faire parvenir"
-    },
-    "signupHaveAccount":{
-        "ar":"هل لديك حساب ؟",
-        "en":"already have an account ?",
-        "fr":"Vous avez déjà un compte ?"
-    },
-    "signupLogin":{
-        "ar":"تسجيل الدخول",
-        "en":"Log in",
-        "fr":"Connexion"
-    },
-    "accountInfoTitle":{
-        "ar":"أكمل تسجيلك هنا",
-        "en":"finish your sign up here",
-        "fr":"terminez votre inscription ici"
-    },
-    "accountInfoCompnayName":{
-        "ar":"اسم الشركة",
-        "en":"Company Name",
-        "fr":"Nom de la compagnie"
-    },
-    "accountInfoErrCompanyName":{
-        "ar":"الرجاء ملء اسم الشركة",
-        "en":"Please Fill In Company Name",
-        "fr":"Veuillez remplir le nom de l'entreprise"
-    },
-    "accountInfoField":{
-        "ar":"حقل",
-        "en":"Field",
-        "fr":"Champ"
-    },
-    "accountInfoErrField":{
-        "ar":"الرجاء تحديد حقل الشركة",
-        "en":"Please Select Company Field",
-        "fr":"Veuillez sélectionner le champ de l'entreprise"
-    },
-    "accountInfoCompanySize":{
-        "ar":"حجم الشركة",
-        "en":"Company Size",
-        "fr":"Taille de l'entreprise"
-    },
-    "accountInfoErrCompanySize":{
-        "ar":"يرجى تحديد حجم الشركة",
-        "en":"Please Select Company Size",
-        "fr":"Veuillez sélectionner la taille de l'entreprise"
-    },
-    "accountInfoSubDomin":{
-        "ar":"اقتراح المجال الفرعي",
-        "en":"Subdomain Suggestion",
-        "fr":"Suggestion de sous-domaine"
-    },
-    "accountInfoErrSubDomin":{
-        "ar":"الرجاء ادخال المجال الفرعي:",
-        "en":"Please Enter Sub-Domain",
-        "fr":"Veuillez entrer le sous-domaine"
-    },
-    "accountInfoEmail":{
-        "ar":"عنوان بريد الكتروني",
-        "en":"Email Address",
-        "fr":"Adresse e-mail"
-    },
-    "accountInfoErrEmail":{
-        "ar":"يرجى إدخال البريد الإلكتروني الصحيح",
-        "en":"Please Enter A Valid Email",
-        "fr":"Veuillez saisir un e-mail valide"
-    },
-    "accountInfoPassword":{
-        "ar":"كلمة المرور",
-        "en":"Password",
-        "fr":"Mot de passe"
-    },
-    "accountInfoPasswordInfo":{
-        "ar":"استخدم 8 أحرف أو أكثر مع مزيج من الأحرف والأرقام والرموز.",
-        "en":"Use 8 or more characters with a mix of letters, numbers & symbols.",
-        "fr":"Utilisez 8 caractères ou plus avec un mélange de lettres, de chiffres et de symboles."
-    },
-    "accountInfoPlacPassword":{
-        "ar":"لا تقل عن 8 أحرف",
-        "en":"not less that 8 characters",
-        "fr":"pas moins de 8 caractères"
-    },
-    "accountInfoErrPassword":{
-        "ar":"الرجاء إدخال كلمة المرور",
-        "en":"Please Enter Password",
-        "fr":"Veuillez entrer le mot de passe"
-    },
-    "accountInfoConfirmPassword":{
-        "ar":"تأكيد كلمة المرور",
-        "en":"Confirm Password",
-        "fr":"Confirmez le mot de passe"
-    },
-    "accountInfoPlacConfirmPassword":{
-        "ar":"تأكيد كلمة المرور",
-        "en":"Confirm Password",
-        "fr":"Confirmez le mot de passe"
-    },
-    "accountInfoErrConfirmPassword":{
-        "ar":"كلمات المرور هذه غير متطابقة. حاول ثانية.",
-        "en":"Those Passwords Didn’t Match. Try Again.",
-        "fr":"Ces mots de passe ne correspondent pas. Essayer à nouveau."
-    },
-    "accountInfoBtn":{
-        "ar":"لنذهب",
-        "en":"let's go",
-        "fr":"allons-y"
-    },
-    "changePasswordTitle":{
-        "ar":"أدخل كلمة المرور الجديدة",
-        "en":"ENTER YOUR NEW PASSWORD",
-        "fr":"ENTREZ VOTRE NOUVEAU MOT DE PASSE"
-    },
-    "changePasswordPassword":{
-        "ar":"كلمة المرور",
-        "en":"Password",
-        "fr":"Mot de passe"
-    },
-    "changePasswordErrPassword":{
-        "ar":"لا تقل عن 8 أحرف",
-        "en":"Not Less That 8 Characters",
-        "fr":"Pas moins de 8 caractères"
-    },
-    "changePasswordConfirmPassword":{
-        "ar":"تأكيد كلمة المرور",
-        "en":"Confirm Password",
-        "fr":"Confirmez le mot de passe"
-    },
-    "changePasswordErrConfirmPassword":{
-        "ar":"كلمات المرور هذه غير متطابقة. حاول ثانية.",
-        "en":"Those Passwords Didn’t Match. Try Again.",
-        "fr":"Ces mots de passe ne correspondent pas. Essayer à nouveau."
-    },
-    "changePasswordBtn":{
-        "ar":"تغيير كلمة المرور",
-        "en":"change Password",
-        "fr":"changer le mot de passe"
-    },
-    "passwordRestTitle":{
-        "ar":"تم تغيير كلمة السر",
-        "en":"password changed",
-        "fr":"Mot de passe changé"
-    },
-    "passwordRestContent":{
-        "ar":"يرجى العلم أن البريد الإلكتروني الذي تم إرساله إليك ستنتهي صلاحيته في غضون 10 دقائق ، وستنتهي صلاحيته في غضون 10 دقائق.",
-        "en":"Please be aware that, the email w''ve been sent to you will be expired within 10 minutes.",
-        "fr":"Sachez que l'e-mail qui vous a été envoyé sera expiré dans les 10 minutes qui vous a été envoyé sera expiré dans les 10 minutes"
-    },
-    "passwordRestbtn":{
-        "ar":"تسجيل الدخول",
-        "en":"sign in",
-        "fr":"s'identifier"
-    },
-    "varifyPhoneTitle":{
-        "ar":"أدخل الرمز المكون من 5 أرقام من رسالة SMS الخاصة بك",
-        "en":"ENTER THE 5-DIGITS CODE FROM YOUR SMS",
-        "fr":"ENTREZ LE CODE À 5 CHIFFRES À PARTIR DE VOTRE SMS"
-    },
-    "varifyPhoneVerifyCode":{
-        "ar":"التحقق من كود",
-        "en":"Verify Code",
-        "fr":"Vérifier le code"
-    },
-    "varifyPhoneChangeNumber":{
-        "ar":"قم بتغيير رقمك",
-        "en":"Change your number",
-        "fr":"Changez votre numéro"
-    },
-    "varifyPhoneBtnVerify":{
-        "ar":"تحقق",
-        "en":"verify",
-        "fr":"Vérifier"
-    },
-    "varifyPhoneBtnSkip":{
-        "ar":"يتخطى",
-        "en":"skip",
-        "fr":"sauter"
-    }
+  "navLogin": {
+    "ar": "تسجيل الدخول",
+    "en": "login",
+    "fr": "connexion"
+  },
+  "navSignUp": {
+    "ar": "اشتراك",
+    "en": "sign Up",
+    "fr": "S'inscrire"
+  },
+  "navSignOut": {
+    "ar": "خروج",
+    "en": "sign out",
+    "fr": "se déconnecter"
+  },
+  "loginHedTitle": {
+    "ar": " قم بإعداد الإصدار التجريبي المجاني الخاص بك من",
+    "en": "SET UP YOUR FREE TRIAL OF ",
+    "fr": "CONFIGUREZ VOTRE ESSAI GRATUIT DE "
+  },
+  "loginEmail": {
+    "ar": "بريد الالكتروني",
+    "en": "Email",
+    "fr": "E-mail"
+  },
+  "loginPassword": {
+    "ar": "كلمة المرور",
+    "en": "Password",
+    "fr": "Mot de passe"
+  },
+
+  "loginEmailPlacHolder": {
+    "ar": "اكتب بريدك الإلكتروني",
+    "en": "type in your email",
+    "fr": "saisissez votre email"
+  },
+  "loginPasswordPlacHolder": {
+    "ar": "لا تقل عن 8 أحرف",
+    "en": "not less that 8 characters",
+    "fr": "pas moins de 8 caractères"
+  },
+
+  "loginErrEmail": {
+    "ar": "غير صحيح البريد الإلكتروني",
+    "en": "Incorrect Email",
+    "fr": "Adresse Email incorrecte"
+  },
+  "loginErrPassword": {
+    "ar": "كلمة سر خاطئة",
+    "en": "Incorrect password",
+    "fr": "Mot de passe incorrect"
+  },
+  "loginStaySigned": {
+    "ar": "ابق مسجلا الدخول",
+    "en": "Stay signed in",
+    "fr": "rester connecté"
+  },
+  "loginForgetPassword": {
+    "ar": "هل نسيت كلمة السر ؟",
+    "en": "Forgot password ?",
+    "fr": "Mot de passe oublié ?"
+  },
+  "loginDontHaveAcc": {
+    "ar": "لا تملك حسابا حتى الآن؟",
+    "en": "Don't have an account yet ?",
+    "fr": "Vous n'avez pas encore de compte?"
+  },
+  "loginSignUp": {
+    "ar": "اشتراك ؟",
+    "en": "signup ?",
+    "fr": "S'inscrire ?"
+  },
+  "loginBtn": {
+    "ar": "تسجيل دخول",
+    "en": "log in",
+    "fr": "connexion"
+  },
+  "footerContact": {
+    "ar": "اتصال",
+    "en": "Contact",
+    "fr": "Contact"
+  },
+  "footerPrivacy": {
+    "ar": "خصوصية",
+    "en": "Privacy",
+    "fr": "Vie privée"
+  },
+  "footerTerms": {
+    "ar": "تعليمات الاستخدام",
+    "en": "Terms of use",
+    "fr": "Conditions d'utilisation"
+  },
+  "footerAccessibility": {
+    "ar": "إمكانية الوصول",
+    "en": "Accessibility",
+    "fr": "Accessibilité"
+  },
+  "footerCookie": {
+    "ar": "تفضيلات ملفات تعريف الارتباط",
+    "en": "Cookie preferences",
+    "fr": "Préférences de cookies"
+  },
+  "footerCopyRight": {
+    "ar": "أنظمة Dexef ERP. كل الحقوق محفوظة.",
+    "en": "Dexef ERP systems. All rights reserved.",
+    "fr": "Systèmes ERP Dexef. Tous les droits sont réservés."
+  },
+  "forgotHeadTitle": {
+    "ar": "أدخل بريدك الإلكتروني ورقم هاتفك",
+    "en": "ENTER YOUR EMAIL & PHONE NUMBER",
+    "fr": "ENTREZ VOTRE EMAIL ET VOTRE NUMÉRO DE TÉLÉPHONE"
+  },
+  "forgotEmail": {
+    "ar": "بريد الالكتروني",
+    "en": "Email",
+    "fr": "E-mail"
+  },
+  "forgotEmailPlacHolder": {
+    "ar": "اكتب بريدك الإلكتروني",
+    "en": "type in your email",
+    "fr": "saisissez votre email"
+  },
+  "forgotRemembered": {
+    "ar": "تذكر كلمة المرور ؟",
+    "en": "Remembered Password ?",
+    "fr": "Vous vous souvenez du mot de passe ?"
+  },
+  "forgotContinue": {
+    "ar": "استمر",
+    "en": "continue",
+    "fr": "Continuez"
+  },
+  "forgotErrEmail": {
+    "ar": "غير صحيح البريد الإلكتروني",
+    "en": "Incorrect Email",
+    "fr": "Adresse Email incorrecte"
+  },
+  "linkSentTitle": {
+    "ar": "تم إرسال الرابط",
+    "en": "Link Sent",
+    "fr": "Lien envoyé"
+  },
+  "linkSentContent": {
+    "ar": "تم إرسال بريد التحقق إلى صندوق البريد الخاص بك ، يرجى العلم أن البريد الإلكتروني الذي أرسلناه إليك ستنتهي صلاحيته في غضون 10 دقائق",
+    "en": "A validation mail Has Been Sent To Your Mailbox, Please be aware that, the email we have been sent to you will be expired within 10 minutes ",
+    "fr": "Un e-mail de validation a été envoyé à votre boîte aux lettres, veuillez noter que l'e-mail que nous vous avons envoyé sera expiré dans les 10 minutes"
+  },
+  "linkSentBtn": {
+    "ar": "إعادة إرسال",
+    "en": "Resend",
+    "fr": "Renvoyer"
+  },
+  "linkExpiredTitle": {
+    "ar": "انتهت صلاحية الرابط",
+    "en": "Link Expired",
+    "fr": "Le lien a expiré"
+  },
+  "linkExpiredContent": {
+    "ar": "تم إرسال بريد التحقق إلى صندوق البريد الخاص بك ، يرجى العلم أن البريد الإلكتروني الذي أرسلناه إليك ستنتهي صلاحيته في غضون 10 دقائق",
+    "en": "A validation mail Has Been Sent To Your Mailbox, Please be aware that, the email we have been sent to you will be expired within 10 minutes",
+    "fr": "Un e-mail de validation a été envoyé à votre boîte aux lettres, veuillez noter que l'e-mail que nous vous avons envoyé sera expiré dans les 10 minutes"
+  },
+  "linkExpiredBtn": {
+    "ar": "اعادة ارسال",
+    "en": "Resend",
+    "fr": "Renvoyer"
+  },
+  "linkVerifiedTitle": {
+    "ar": "تهانينا",
+    "en": "Congratulations",
+    "fr": "Toutes nos félicitations"
+  },
+  "linkVerifiedContent": {
+    "ar": "تم إرسال بريد التحقق إلى صندوق البريد الخاص بك ، يرجى العلم أن البريد الإلكتروني الذي أرسلناه إليك ستنتهي صلاحيته في غضون 10 دقائق وستنتهي صلاحيته في غضون 10 دقائق",
+    "en": "A validation mail Has Been Sent To, Please be aware that, the email we have been sent to you will be expired within 10 minutes have been sent to you will be expired within 10 minutes",
+    "fr": "Un e-mail de validation a été envoyé à votre boîte aux lettres, veuillez noter que l'e-mail que nous vous avons envoyé sera expiré dans les 10 minutes qui vous ont été envoyé sera expiré dans les 10 minutes"
+  },
+  "linkVerifiedBtn": {
+    "ar": "تسجيل دخول",
+    "en": "log in",
+    "fr": "connexion"
+  },
+  "signupTitle": {
+    "ar": "قم بإعداد الإصدار التجريبي المجاني الخاص بك من",
+    "en": "SET UP YOUR FREE TRIAL OF",
+    "fr": "CONFIGUREZ VOTRE ESSAI GRATUIT DE"
+  },
+  "signupFullName": {
+    "ar": "الاسم الكامل",
+    "en": "Full Name",
+    "fr": "Nom et prénom"
+  },
+  "signupErrFullName": {
+    "ar": "الاسم الكامل غير صالح",
+    "en": "not valid full name",
+    "fr": "nom complet non valide"
+  },
+  "signupCountry": {
+    "ar": "دولة",
+    "en": "Country",
+    "fr": "De campagne"
+  },
+  "signupErrCountry": {
+    "ar": "الرجاء اختيار دولة",
+    "en": "Please choose a country",
+    "fr": "Veuillez choisir un pays"
+  },
+  "signupPhoneNumber": {
+    "ar": "رقم الهاتف",
+    "en": "Phone Number",
+    "fr": "Numéro de téléphone"
+  },
+  "signupPhoneInfo": {
+    "ar": "سنستخدم رقمك لأمان الحساب. لن يكون مرئيًا للآخرين.",
+    "en": "We’ll use your number for account security. It won’t be visible to others.",
+    "fr": "Nous utiliserons votre numéro pour la sécurité de votre compte. Il ne sera pas visible pour les autres."
+  },
+  "signupErrPhone": {
+    "ar": "رقم الهاتف غير صالح",
+    "en": "not valid phone number",
+    "fr": "numéro de téléphone non valide"
+  },
+  "signupTerms1": {
+    "ar": "بالنقر فوق إرسال فإنك توافق على",
+    "en": "By clicking submit you agree to the",
+    "fr": "En cliquant sur Soumettre, vous acceptez le"
+  },
+  "signupTerms2": {
+    "ar": " شروط",
+    "en": "Terms ",
+    "fr": "termes "
+  },
+  "signupTerms3": {
+    "ar": " و",
+    "en": "And ",
+    "fr": "Et "
+  },
+  "signupTerms4": {
+    "ar": " شروط.",
+    "en": "Conditions. ",
+    "fr": "Conditions. "
+  },
+  "signupBtn": {
+    "ar": "قدم",
+    "en": "Submit",
+    "fr": "Nous faire parvenir"
+  },
+  "signupHaveAccount": {
+    "ar": "هل لديك حساب ؟",
+    "en": "already have an account ?",
+    "fr": "Vous avez déjà un compte ?"
+  },
+  "signupLogin": {
+    "ar": "تسجيل الدخول",
+    "en": "Log in",
+    "fr": "Connexion"
+  },
+  "accountInfoTitle": {
+    "ar": "أكمل تسجيلك هنا",
+    "en": "finish your sign up here",
+    "fr": "terminez votre inscription ici"
+  },
+  "accountInfoCompnayName": {
+    "ar": "اسم الشركة",
+    "en": "Company Name",
+    "fr": "Nom de la compagnie"
+  },
+  "accountInfoErrCompanyName": {
+    "ar": "الرجاء ملء اسم الشركة",
+    "en": "Please Fill In Company Name",
+    "fr": "Veuillez remplir le nom de l'entreprise"
+  },
+  "accountInfoField": {
+    "ar": "حقل",
+    "en": "Field",
+    "fr": "Champ"
+  },
+  "accountInfoErrField": {
+    "ar": "الرجاء تحديد حقل الشركة",
+    "en": "Please Select Company Field",
+    "fr": "Veuillez sélectionner le champ de l'entreprise"
+  },
+  "accountInfoCompanySize": {
+    "ar": "حجم الشركة",
+    "en": "Company Size",
+    "fr": "Taille de l'entreprise"
+  },
+  "accountInfoErrCompanySize": {
+    "ar": "يرجى تحديد حجم الشركة",
+    "en": "Please Select Company Size",
+    "fr": "Veuillez sélectionner la taille de l'entreprise"
+  },
+  "accountInfoSubDomin": {
+    "ar": "اقتراح المجال الفرعي",
+    "en": "Subdomain Suggestion",
+    "fr": "Suggestion de sous-domaine"
+  },
+  "accountInfoErrSubDomin": {
+    "ar": "الرجاء ادخال المجال الفرعي:",
+    "en": "Please Enter Sub-Domain",
+    "fr": "Veuillez entrer le sous-domaine"
+  },
+  "accountInfoEmail": {
+    "ar": "عنوان بريد الكتروني",
+    "en": "Email Address",
+    "fr": "Adresse e-mail"
+  },
+  "accountInfoErrEmail": {
+    "ar": "يرجى إدخال البريد الإلكتروني الصحيح",
+    "en": "Please Enter A Valid Email",
+    "fr": "Veuillez saisir un e-mail valide"
+  },
+  "accountInfoPassword": {
+    "ar": "كلمة المرور",
+    "en": "Password",
+    "fr": "Mot de passe"
+  },
+  "accountInfoPasswordInfo": {
+    "ar": "استخدم 8 أحرف أو أكثر مع مزيج من الأحرف والأرقام والرموز.",
+    "en": "Use 8 or more characters with a mix of letters, numbers & symbols.",
+    "fr": "Utilisez 8 caractères ou plus avec un mélange de lettres, de chiffres et de symboles."
+  },
+  "accountInfoPlacPassword": {
+    "ar": "لا تقل عن 8 أحرف",
+    "en": "not less that 8 characters",
+    "fr": "pas moins de 8 caractères"
+  },
+  "accountInfoErrPassword": {
+    "ar": "الرجاء إدخال كلمة المرور",
+    "en": "Please Enter Password",
+    "fr": "Veuillez entrer le mot de passe"
+  },
+  "accountInfoConfirmPassword": {
+    "ar": "تأكيد كلمة المرور",
+    "en": "Confirm Password",
+    "fr": "Confirmez le mot de passe"
+  },
+  "accountInfoPlacConfirmPassword": {
+    "ar": "تأكيد كلمة المرور",
+    "en": "Confirm Password",
+    "fr": "Confirmez le mot de passe"
+  },
+  "accountInfoErrConfirmPassword": {
+    "ar": "كلمات المرور هذه غير متطابقة. حاول ثانية.",
+    "en": "Those Passwords Didn’t Match. Try Again.",
+    "fr": "Ces mots de passe ne correspondent pas. Essayer à nouveau."
+  },
+  "accountInfoBtn": {
+    "ar": "لنذهب",
+    "en": "let's go",
+    "fr": "allons-y"
+  },
+  "changePasswordTitle": {
+    "ar": "أدخل كلمة المرور الجديدة",
+    "en": "ENTER YOUR NEW PASSWORD",
+    "fr": "ENTREZ VOTRE NOUVEAU MOT DE PASSE"
+  },
+  "changePasswordPassword": {
+    "ar": "كلمة المرور",
+    "en": "Password",
+    "fr": "Mot de passe"
+  },
+  "changePasswordErrPassword": {
+    "ar": "لا تقل عن 8 أحرف",
+    "en": "Not Less That 8 Characters",
+    "fr": "Pas moins de 8 caractères"
+  },
+  "changePasswordConfirmPassword": {
+    "ar": "تأكيد كلمة المرور",
+    "en": "Confirm Password",
+    "fr": "Confirmez le mot de passe"
+  },
+  "changePasswordErrConfirmPassword": {
+    "ar": "كلمات المرور هذه غير متطابقة. حاول ثانية.",
+    "en": "Those Passwords Didn’t Match. Try Again.",
+    "fr": "Ces mots de passe ne correspondent pas. Essayer à nouveau."
+  },
+  "changePasswordBtn": {
+    "ar": "تغيير كلمة المرور",
+    "en": "change Password",
+    "fr": "changer le mot de passe"
+  },
+  "passwordRestTitle": {
+    "ar": "تم تغيير كلمة السر",
+    "en": "password changed",
+    "fr": "Mot de passe changé"
+  },
+  "passwordRestContent": {
+    "ar": "يرجى العلم أن البريد الإلكتروني الذي تم إرساله إليك ستنتهي صلاحيته في غضون 10 دقائق ، وستنتهي صلاحيته في غضون 10 دقائق.",
+    "en": "Please be aware that, the email w''ve been sent to you will be expired within 10 minutes.",
+    "fr": "Sachez que l'e-mail qui vous a été envoyé sera expiré dans les 10 minutes qui vous a été envoyé sera expiré dans les 10 minutes"
+  },
+  "passwordRestbtn": {
+    "ar": "تسجيل الدخول",
+    "en": "sign in",
+    "fr": "s'identifier"
+  },
+  "varifyPhoneTitle": {
+    "ar": "أدخل الرمز المكون من 5 أرقام من رسالة SMS الخاصة بك",
+    "en": "ENTER THE 5-DIGITS CODE FROM YOUR SMS",
+    "fr": "ENTREZ LE CODE À 5 CHIFFRES À PARTIR DE VOTRE SMS"
+  },
+  "varifyPhoneVerifyCode": {
+    "ar": "التحقق من كود",
+    "en": "Verify Code",
+    "fr": "Vérifier le code"
+  },
+  "varifyPhoneChangeNumber": {
+    "ar": "قم بتغيير رقمك",
+    "en": "Change your number",
+    "fr": "Changez votre numéro"
+  },
+  "varifyPhoneBtnVerify": {
+    "ar": "تحقق",
+    "en": "verify",
+    "fr": "Vérifier"
+  },
+  "varifyPhoneBtnSkip": {
+    "ar": "يتخطى",
+    "en": "skip",
+    "fr": "sauter"
+  }
 }

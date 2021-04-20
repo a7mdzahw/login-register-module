@@ -1,0 +1,123 @@
+{
+    "Error-System-1000": {
+        "ar": "يجب ادخال هذا الحقل",
+        "en": "The field reuired to be entered",
+        "fr": "Le champ à saisir"
+    },
+    "Error-System-1001":{
+        "ar":"المصادقة مطلوبة قبل الاستخدام",
+        "en":"authentication needed before use",
+        "fr":"authentification nécessaire avant utilisation"
+    },
+    "Error-System-1002": {
+        "ar":"مستخدم من قبل",
+        "en":"Already used",
+        "fr":"Déjà utilisé"
+    },
+    "Error-System-1003": {
+        "ar":"تنسيق الحقل غير صالح",
+        "en":"The field format not valid",
+        "fr":"Le format de champ n'est pas valide"
+    },
+    "Error-UserProfile-1004":{
+        "ar":"انتهت تجربة المستخدم ولا يمكن تنشيط بعض الإجراءات",
+        "en":"The user trial ended and some action can't be activated",
+        "fr":"L'essai utilisateur est terminé et certaines actions ne peuvent pas être activées"
+    },
+    "Error-System-1005":{
+        "ar":"لم يتم العثور على القيمة لاستخدامها مثل أي مفتاح خارجي أو رمز تحقق",
+        "en":"The value not found to use like any foreign key or validation code",
+        "fr":"La valeur introuvable à utiliser comme n'importe quelle clé étrangère ou code de validation"
+    },
+    "Error-System-1006":{
+        "ar":"انتهت صلاحية ارتباط رابط البريد الإلكتروني للتفعيل أو رابط إعادة تعيين كلمة المرور",
+        "en":"The link of activetion email link or password reset link in expired",
+        "fr":"Le lien du lien de l'e-mail d'activation ou du lien de réinitialisation du mot de passe est arrivé à expiration"
+    },
+    "Error-System-1007": {
+        "ar": "تم استخدام هذا الرابط من قبل",
+        "en": "The Link used before",
+        "fr": "Le lien utilisé avant"
+    },
+    "Error-System-1008": {
+        "ar": "غير صحيح",
+        "en": "Invalid Field",
+        "fr": "Champ invalide"
+    },
+    "Error-System-1018":{
+        "ar":"تجاوز الملف الحجم الأقصى",
+        "en":"File Exceeded Max Size",
+        "fr":"Le fichier a dépassé la taille maximale"
+    },
+    "Error-UserProfile-1017":{
+        "ar":"The user email not verified and can't continue the process",
+        "en":"The user email not verified and can't continue the process",
+        "fr":"L'adresse e-mail de l'utilisateur n'a pas été vérifiée et ne peut pas continuer le processus"
+    },
+    "Error-System-1019":{
+        "ar":"غير مدعوم",
+        "en":"Not Supported",
+        "fr":"Non supporté"
+    },
+    "Error-System-1020":{
+        "ar":"أقصى طول للمجال",
+        "en":"Field Max Length",
+        "fr":"Longueur maximale du champ"
+    },
+    "Error-System-1021":{
+        "ar":"يجب أن يحتوي على حرف كبير",
+        "en":"Must Contain Uppercase Letter",
+        "fr":"Doit contenir une lettre majuscule"
+    },
+    "Error-System-1022":{
+        "ar":"يجب أن يحتوي على أرقام",
+        "en":"Must Contain Digit",
+        "fr":"Doit contenir un chiffre"
+    },
+    "Error-System-1023":{
+        "ar":"يجب أن يحتوي على رمز",
+        "en":"Must Contain Symbol",
+        "fr":"Doit contenir un symbole"
+    },
+    "Error-System-1024":{
+        "ar":"عملية غير صالحة",
+        "en":"Invalid Operation",
+        "fr":"Opération invalide"
+    },
+    "Error-System-1025":{
+        "ar":"وصلت إلى نهاية التقسيم",
+        "en":"Reached End Of The Partition",
+        "fr":"Atteint la fin de la partition"
+    },
+    "Error-System-102":{
+        "ar":"فشل غير معروف",
+        "en":"Unknown Fail",
+        "fr":"Échec inconnu"
+    },
+    "Error-System-1027":{
+        "ar":"الرسالة كبيرة جدًا",
+        "en":"Message Too Large",
+        "fr":"Message trop volumineux"
+    },
+    "Error-System-1028":{
+        "ar":"رسالة غير صحيحة",
+        "en":"Invalid Message",
+        "fr":"Message invalide"
+    },
+    "Error-System-1029":{
+        "ar":"معرف المجموعة غير موجود",
+        "en":"Group Id Is Not Exist",
+        "fr":"L'ID de groupe n'existe pas"
+    },
+    "Error-System-1030":{
+        "ar":"الخادم غير متوفر",
+        "en":"Server Not Available",
+        "fr":"Serveur non disponible"
+    },
+    "Error-UserProfile-1033":{
+        "ar":"تم التحقق من البريد الإلكتروني بالفعل",
+        "en":"Email Already Verified",
+        "fr":"Courriel déjà vérifié"
+    }
+    
+}

@@ -59,13 +59,17 @@ module.exports = function signup(next) {
   // handling step 2 of signup process
   router.post("/signup2", async (req, res) => {
     if (await check(validateStep2, "/signup/verify_code", req, res, next)) return;
-    const { data } = await http.post("/VerifyPhoneCode", {
-      ...req.body,
-      validatePhoneToken: req.session.validatePhoneToken,
-    });
-    if (await checkValidaty(data, "/signup/verify_code", req, res, next)) return;
-    req.session.phoneValidationToken = data.response.phoneValidationToken;
-    res.redirect("/signup/finish");
+    try {
+      const { data } = await http.post("/VerifyPhoneCode", {
+        ...req.body,
+        validatePhoneToken: req.session.validatePhoneToken,
+      });
+      if (await checkValidaty(data, "/signup/verify_code", req, res, next)) return;
+      req.session.phoneValidationToken = data.response.phoneValidationToken;
+      res.redirect("/signup/finish");
+    } catch (err) {
+      return next.render(req, res, "/signup/verify_code", { serverError: err });
+    }
   });
 
   // handling step 3 of signup process

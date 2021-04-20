@@ -43,7 +43,7 @@ module.exports = function (next) {
       }
     } catch (err) {
       console.log(err.response?.data || err.message);
-      return next.render(req, res, "/login", { serverError: (err.response && err.response.data) || err.message });
+      return next.render(req, res, "/login", { serverError: (err.response && err.response.data) || err });
     }
   });
 

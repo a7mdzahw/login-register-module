@@ -27,7 +27,7 @@ const Login = ({ error }) => {
           />
         </h1>
         <div>
-          {errObj.serverError && <p className="alert alert-danger">Server Error Try Again Later</p>}
+          {errObj.serverError && <p className="alert alert-danger">{errObj.serverError}</p>}
           <LoginForm error={errObj.error} body={errObj.body} apiErrors={errObj.apiErrors} />
         </div>
       </div>

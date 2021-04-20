@@ -1,6 +1,8 @@
 import React from "react";
+import useLang from "../../context/LangContext";
 
 const LinkExpired = () => {
+  const { lang, local } = useLang();
   return (
     <div className="linkexpired">
       <div className="container">
@@ -13,14 +15,12 @@ const LinkExpired = () => {
           <div className="col-lg-6 col-12">
             <div className="boxLinkSent text-center">
               <img src="/img/link_expired.svg" alt="icon" />
-              <h2 className="headTitle">Link Expired</h2>
-              <p className="content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ut, odit temporibus natus inventore
-                officiis laborum! Porro enim recusandae doloremque delectus aperiam ad sequi suscipit maiores et dolore!
-                Nostrum, optio.
-              </p>
+              <h2 className="headTitle">{local.linkExpiredTitle[lang]}</h2>
+              <p className="content">{local.linkExpiredContent[lang]}</p>
               <form action="/ResendEmailVerification" method="POST">
-                <button className="btn btn-primary d-block w-100 btn-blue btn-resend btn-block">Resend</button>
+                <button className="btn btn-primary d-block w-100 btn-blue btn-resend btn-block">
+                  {local.linkExpiredBtn[lang]}
+                </button>
               </form>
             </div>
           </div>

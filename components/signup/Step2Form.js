@@ -6,7 +6,7 @@ import getError from "../../lib/getError";
 import useLang from "../../context/LangContext";
 import Input from "../shared/Input";
 
-const Step2Form = ({ error, apiErrors, millseconds }) => {
+const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
   const [isDisabled, setIsDisabled] = useState(true);
   const { lang, local } = useLang();
 
@@ -35,6 +35,7 @@ const Step2Form = ({ error, apiErrors, millseconds }) => {
   };
   return (
     <>
+      {serverError && <div className="text-red-500">{serverError}</div>}
       <form action="/signup2" method="POST" className="w-full">
         <Input
           type="text"

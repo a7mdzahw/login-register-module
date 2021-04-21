@@ -18,7 +18,7 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
-        <a className="btn-timer text-blue-600" disabled={false} href="/signup/finish">
+        <a className="btn-timer" disabled={false} href="/signup/finish">
           {local.varifyPhoneBtnSkip[lang]}
         </a>
       );
@@ -45,18 +45,16 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
           error={getError(error, "verifyCode")}
           apiError={getApiError(apiErrors, "VerifyCode")}
         />
-        <div className="flex space-x-12 justify-between items-center">
-          <button className="btn Rectangle-608 log-in col-8" disabled={isDisabled}>
+        <Link href="/signup">
+          <a className="changeNumber">{local.varifyPhoneChangeNumber[lang]}</a>
+        </Link>
+        <div className="btn-div">
+          <button className="btn-verify btn-blue" disabled={isDisabled}>
             {local.varifyPhoneBtnVerify[lang]}
           </button>
           <Countdown date={Date.now() + millseconds} renderer={renderer} />
         </div>
       </form>
-
-      {/* to be removed */}
-      <Link href="/signup/finish">
-        <a className="btn btn-primary mt-4">Skip</a>
-      </Link>
     </>
   );
 };

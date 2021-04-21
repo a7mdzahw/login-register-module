@@ -1,58 +1,82 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Navbar as BSNav, Nav, NavDropdown } from "react-bootstrap";
 
 import useLang from "../../context/LangContext";
 
 const Navbar = ({ user }) => {
   const router = useRouter();
+
   const { lang, setLangCookie, local } = useLang();
   const [currentLang, setCurrentLang] = useState(lang);
 
   useEffect(() => {
+    const navbar = document.getElementById("navbar");
+    console.log(navbar.clientHeight);
     setCurrentLang(lang);
   }, [lang]);
 
   return (
-    <nav className="navbar navbar-expand bg shadow-sm">
-      <div className="container">
-        <Link href="/">
-          <a className="navbar-brand fs-3 fw-bold">
-            <img src="/img/dexef_logo.svg" alt="logo" height="20px" />
-          </a>
-        </Link>
-        <ul className="navbar-nav">
-          <li className="nav-item mx-4">
-            <form action="/changeLang" method="POST" className="flex space-x-2 items-center">
-              <input type="text" name="redirect" value={router.pathname} className="hidden" onChange={() => null} />
-              <select
-                name="language"
-                id="language"
-                value={lang}
-                onChange={({ target }) => setLangCookie(target.value)}
-                className="focus:outline-none px-3 text-gray-600 nav-link"
-              >
-                <option value="en">English</option>
-                <option value="ar">عربي</option>
-                <option value="fr">French</option>
-              </select>
-              <noscript>
-                <button type="submit" className="rounded bg-indigo-400 px-3 py-2">
-                  Change
-                </button>
-              </noscript>
-            </form>
-          </li>
+    <BSNav className="fixed-top" id="navbar" expand="lg">
+      <Link href="/">
+        <a className="navbar-brand">
+          <img src="/img/dexef_logo.svg" alt="logo" className="dexef" />
+        </a>
+      </Link>
+
+      <BSNav.Toggle aria-controls="basic-navbar-nav" />
+      <BSNav.Collapse id="basic-navbar-nav">
+        <Nav className="d-flex align-items-center">
+          <NavDropdown
+            className="lang"
+            title={lang === "en" ? "English" : lang === "ar" ? "عربي" : "French"}
+            id="basic-nav-dropdown"
+          >
+            <NavDropdown.Item onClick={() => setLangCookie("ar")}>عربي</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => setLangCookie("en")}>English</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => setLangCookie("fr")}>France</NavDropdown.Item>
+          </NavDropdown>
+
+          <noscript>
+            <li className="nav-item mx-4">
+              <form action="/changeLang" method="POST" className="d-flex gap-2 align-items-center outline-none">
+                <input
+                  type="text"
+                  name="redirect"
+                  value={router.pathname}
+                  className="visually-hidden"
+                  onChange={() => null}
+                />
+                <select
+                  name="language"
+                  id="language"
+                  value={lang}
+                  onChange={({ target }) => setLangCookie(target.value)}
+                  className="nav-link"
+                >
+                  <option value="en">English</option>
+                  <option value="ar">عربي</option>
+                  <option value="fr">French</option>
+                </select>
+                <noscript>
+                  <button type="submit" className="rounded bg-indigo-400 px-3 py-2">
+                    Change
+                  </button>
+                </noscript>
+              </form>
+            </li>
+          </noscript>
           {!user && (
             <>
               <li className="nav-item">
                 <Link href="/login">
-                  <a className="nav-link  Rectangle-609 log-in-nav px-4 me-1 btn-login"> {local.navLogin[lang]}</a>
+                  <a className="btn-login"> {local.navLogin[lang]}</a>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link href="/signup">
-                  <a className="nav-link Rectangle-608 log-in px-4 bg-blue-500">{local.navSignUp[lang]}</a>
+                  <a className="btn-signUp">{local.navSignUp[lang]}</a>
                 </Link>
               </li>
             </>
@@ -71,9 +95,9 @@ const Navbar = ({ user }) => {
               </li>
             </>
           )}
-        </ul>
-      </div>
-    </nav>
+        </Nav>
+      </BSNav.Collapse>
+    </BSNav>
   );
 };
 

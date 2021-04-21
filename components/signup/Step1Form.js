@@ -19,7 +19,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
   };
   return (
     <>
-      <form action="/signup1" method="POST" noValidate>
+      <form action="/signup1" method="POST" noValidate className="w-100">
         <Input
           name="fullName"
           type="text"
@@ -28,13 +28,14 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
           value={data.fullName || ""}
           onChange={handleChange}
         />
-        <div className="form-group mb-2">
-          <label htmlFor="countryCode" className="form-label">
+        <div className="input-div">
+          <label htmlFor="countryCode" className="labelName">
             {local.signupCountry[lang]}
           </label>
           <select
             name="countryCode"
-            placeholder="choose country"
+            placeholder="select country"
+            style={{ border: 0 }}
             className={
               getError(error, "countryCode")
                 ? "form-select form-select-lg  border border-danger"
@@ -56,31 +57,45 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
           {getError(error, "countryCode") && <p className="text-danger">{local.signupErrCountry[lang]}</p>}
           {apiCountryErr && <p className="text-danger mt-1">{apiCountryErr.description}</p>}
         </div>
-        <div className=" mb-3">
-          <label htmlFor="phone-input">{local.signupPhoneNumber[lang]}</label>
+        <div className=" mb-3 input-div">
+          <label htmlFor="phone-input" className="labelName">
+            {local.signupPhoneNumber[lang]}
+          </label>
           <PhoneInput
             country={data.countryCode?.toLowerCase() || "eg"}
             name="phone"
             value={data.phone}
+            specialLabel=""
             onChange={(phone) => setData({ ...data, phone })}
             inputProps={{
               name: "phone",
-              style: { width: "100%", height: "2.8rem", fontFamily: "Cairo" },
+              style: { width: "100%", fontFamily: "cairo-regular", height: "3rem" },
               required: true,
               id: "phone-input",
-              className: phoneError ? "form-control border border-danger" : "form-control ",
+              className: phoneError ? "form-control border border-danger" : "form-control",
             }}
           />
           {phoneError && <p className="text-danger mt-1">{local.signupErrPhone[lang]}</p>}
           {apiPhoneErr && <p className="text-danger mt-1">{apiPhoneErr.description}</p>}
         </div>
-        <button className="btn Rectangle-608 log-in d-block w-100">{local.signupBtn[lang]}</button>
-        <div className="mt-2 text-center signup_text">
+        <p className="terms">
+          {local.signupTerms1[lang]}{" "}
+          <a href="/terms" target="_blank" className="text-decoration-none">
+            {local.signupTerms2[lang]}
+          </a>{" "}
+          {local.signupTerms3[lang]}{" "}
+          <a href="/conditions" target="_blank" className="text-decoration-none">
+            {local.signupTerms4[lang]}
+          </a>
+          .
+        </p>
+        <button className="btn-submit btn-block btn-blue d-block w-100">{local.signupBtn[lang]}</button>
+        <h6 className="haveAccount">
           {local.signupHaveAccount[lang]}{" "}
           <Link href="/login">
-            <a className="text-style-1">{local.signupLogin[lang]}</a>
+            <a className="text-decoration-none">{local.signupLogin[lang]}</a>
           </Link>
-        </div>
+        </h6>
       </form>
     </>
   );

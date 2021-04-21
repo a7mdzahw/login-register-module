@@ -11,23 +11,21 @@ const Login = ({ error }) => {
   const { lang } = useLang();
 
   return (
-    <div className="container h-96">
+    <div className="login">
       <Head>
         <title>Login</title>
       </Head>
 
-      <div className="container lg:flex justify-between pt-8 items-center lg:pt-32">
-        <h1 className="fw-bold Title_signup lg:max-w-lg xl:max-w-xl">
-          {local.loginHedTitle[lang]}
-          <img
-            src="/img/dexef_logo.svg"
-            alt="logo"
-            height="40px"
-            className="inline-block"
-            style={{ paddingBottom: 10 }}
-          />
-        </h1>
-        <div>
+      <div className="row">
+        <div className="col-xl-5 col-md-6 div-space">
+          <div className="login-content">
+            <h1 className="title">
+              {local.loginHedTitle[lang]}
+              <img className="dexef" src="/img/svg/dexef_logo.svg" alt="dexef" />{" "}
+            </h1>
+          </div>
+        </div>
+        <div className="col-xl-4 col-md-6">
           {errObj.serverError && <p className="alert alert-danger">{errObj.serverError}</p>}
           <LoginForm error={errObj.error} body={errObj.body} apiErrors={errObj.apiErrors} />
         </div>

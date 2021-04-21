@@ -1,6 +1,7 @@
 import App from "next/app";
 import { useRouter } from "next/router";
 import ProgressBar from "nextjs-progressbar";
+import Footer from "../components/shared/footer";
 
 import Navbar from "../components/shared/Navbar";
 import { LangContextProvider } from "../context/LangContext";
@@ -8,33 +9,39 @@ import { LangContextProvider } from "../context/LangContext";
 function MyApp({ Component, pageProps, lang, js }) {
   const router = useRouter();
   return (
-    <LangContextProvider lang={lang}>
-      <ProgressBar />
-      <Navbar user={pageProps.user || null} />
-      <Component {...pageProps} />
+    <div className="App">
+      <LangContextProvider lang={lang}>
+        <ProgressBar />
+        <Navbar user={pageProps.user || null} />
+        <div className="container-fluid">
+          <Component {...pageProps} />
+        </div>
 
-      {js === "false" ? null : (
-        <noscript>
-          <div className="alert alert-warning flex space-x-3 justify-between items-center mt-2 fixed inset-x-0 top-14 left-0">
-            <div className="flex space-x-2 items-center">
-              <img src="/delet_trai_acc.svg" alt="alert" className="me-2 h-8 w-8" />
-              Please enable javascript for better experience
+        {js === "false" ? null : (
+          <noscript>
+            <div className="js-container">
+              <div className="js-content">
+                <img src="/delet_trai_acc.svg" alt="alert" className="js-alert" />
+                Please enable javascript for better experience
+              </div>
+
+              <form action="/closeJSPopup" method="GET">
+                <input
+                  className="visually-hidden"
+                  type="text"
+                  value={router.pathname}
+                  name="redirect"
+                  onChange={() => null}
+                />
+                <button className="btn btn-danger mt-1">Agree and Close</button>
+              </form>
             </div>
-
-            <form action="/closeJSPopup" method="GET">
-              <input
-                className="visually-hidden"
-                type="text"
-                value={router.pathname}
-                name="redirect"
-                onChange={() => null}
-              />
-              <button className="btn btn-danger mt-1">Agree and Close</button>
-            </form>
-          </div>
-        </noscript>
-      )}
-    </LangContextProvider>
+          </noscript>
+        )}
+        <div className="mt-2"></div>
+        <Footer />
+      </LangContextProvider>
+    </div>
   );
 }
 

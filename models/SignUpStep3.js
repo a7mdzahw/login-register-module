@@ -4,8 +4,17 @@ const local = require("../public/assets/Localization.json");
 const validateStep3 = (step3, lang) => {
   const schema = joi.object({
     companyName: joi.string().required().messages({ "string.empty": local.accountInfoErrCompanyName[lang] }),
-    workField: joi.number().required().messages({ "number.base": local.accountInfoErrField[lang] }),
-    companySize: joi.number().required().messages({ "number.base": local.accountInfoErrCompanySize[lang] }),
+    workField: joi
+      .number()
+      .required()
+      .messages({ "number.base": local.accountInfoErrField[lang], "any.required": local.accountInfoErrField[lang] }),
+    companySize: joi
+      .number()
+      .required()
+      .messages({
+        "number.base": local.accountInfoErrCompanySize[lang],
+        "any.required": local.accountInfoErrCompanySize[lang],
+      }),
     subDomain: joi.string().required().messages({ "string.empty": local.accountInfoErrSubDomin[lang] }),
     email: joi
       .string()

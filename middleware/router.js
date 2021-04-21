@@ -4,9 +4,9 @@ module.exports = function (req, res, next) {
       if (req.session.validatePhoneToken) return next();
       res.redirect("/signup");
       break;
-    case "/signup/finish":
-      if (req.session.validatePhoneToken) return next();
-      res.redirect("/signup");
+    // case "/signup/finish":
+    //   if (req.session.validatePhoneToken) return next();
+    //   res.redirect("/signup");
     default:
       next();
   }

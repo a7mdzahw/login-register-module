@@ -11,16 +11,18 @@ const ForgetPassword = ({ error: errObj }) => {
   const { error, body, apiErrors, serverError } = JSON.parse(errObj);
   const [data, setData] = useState({ ...body });
   return (
-    <div className="container">
+    <div className="forgot-password">
       <Head>
         <title>Forget Password</title>
       </Head>
-      <div className="lg:flex space-y-2 pt-8 lg:pt-32 mx-auto justify-between items-center">
-        <div className="forgot-content">
-          <h1 className="title fw-bold fs-2">{local.forgotHeadTitle[lang]}</h1>
+      <div className="row">
+        <div className="col-xl-5 col-md-6 div-space">
+          <div className="forgot-content">
+            <h1 className="title">{local.forgotHeadTitle[lang]}</h1>
+          </div>
         </div>
 
-        <div className="lg:w-1/2">
+        <div className="col-xl-4 col-md-6">
           {serverError && <div className="text-danger">Server Error, try later</div>}
           <form className="div-forgot" method="POST" action="/ForgetPasswordRequest">
             <Input
@@ -34,9 +36,9 @@ const ForgetPassword = ({ error: errObj }) => {
               apiError={getApiError(apiErrors, "Email")}
             />
             <Link href="/">
-              <a className="remembere font-bold mb-2">{local.forgotRemembered[lang]}</a>
+              <a className="remembere">{local.forgotRemembered[lang]}</a>
             </Link>
-            <button className="btn Rectangle-608 log-in d-block w-100 ">{local.forgotContinue[lang]}</button>
+            <button className="btn-block btn-continue btn-blue d-block w-100">{local.forgotContinue[lang]}</button>
           </form>
         </div>
       </div>

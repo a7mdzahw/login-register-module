@@ -10,11 +10,11 @@ const Signup = ({ step, error, timeRemaining }) => {
   const errObj = JSON.parse(error);
   const millseconds = timeRemaining * 60 * 1000 - 1000;
   return (
-    <div className="container">
+    <div className="signUp">
       <Head>
         <title>Verify Code</title>
       </Head>
-      <div className="container d-flex justify-content-around align-items-center" style={{ height: "75vh" }}>
+      <div className="row">
         <Signuplayout step={step}>
           <Step2Form
             error={errObj.error}

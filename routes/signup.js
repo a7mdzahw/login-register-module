@@ -47,8 +47,8 @@ module.exports = function signup(next) {
       console.log(data);
       if (await checkValidaty(data, "/signup", req, res, next)) return;
       req.session.preRegisterData = req.body;
-      req.session.validatePhoneToken = data.response.verifyPhoneToken;
-      res.cookie("validatePhoneToken", data.response.verifyPhoneToken);
+      req.session.validatePhoneToken = data.response?.verifyPhoneToken;
+      res.cookie("validatePhoneToken", data.response?.verifyPhoneToken);
       res.redirect("/signup/verify_code");
     } catch (err) {
       console.log(err.message);

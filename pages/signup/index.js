@@ -9,22 +9,21 @@ import Step1Form from "../../components/signup/Step1Form";
 const Signup = ({ step, error, js }) => {
   const errObj = JSON.parse(error);
   return (
-    <div className="container">
+    <div className="signUp">
       <Head>
         <title>Sign Up</title>
       </Head>
-      <div>
-        <Signuplayout step={step}>
-          {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
-          <Step1Form
-            error={errObj.error}
-            body={errObj.body}
-            apiErrors={errObj.apiErrors}
-            phoneError={errObj.phoneError}
-            js={js}
-          />
-        </Signuplayout>
-      </div>
+
+      <Signuplayout step={step}>
+        {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
+        <Step1Form
+          error={errObj.error}
+          body={errObj.body}
+          apiErrors={errObj.apiErrors}
+          phoneError={errObj.phoneError}
+          js={js}
+        />
+      </Signuplayout>
     </div>
   );
 };

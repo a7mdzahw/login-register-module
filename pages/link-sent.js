@@ -13,7 +13,7 @@ function LinkSent({ time }) {
         <>
           <span className="countDown">00:00:00</span>
           <form action="/ResendEmailVerification" method="POST">
-            <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={false}>
+            <button className="btn-resend btn-block btn-blue" disabled={false}>
               {local.linkSentBtn[lang]}
             </button>
           </form>
@@ -24,7 +24,7 @@ function LinkSent({ time }) {
       return (
         <>
           <span className="countDown">{`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(seconds)}`}</span>
-          <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={true}>
+          <button className="btn-resend btn-block btn-blue d-block w-100" disabled={true}>
             {local.linkSentBtn[lang]}
           </button>
         </>
@@ -45,7 +45,7 @@ function LinkSent({ time }) {
             </div>
           </div>
           <div className="col-lg-6 col-12">
-            <div className="boxLinkSent text-center flex flex-col space-y-2 items-center">
+            <div className="boxLinkSent text-center">
               <img src="/img/link_sent.svg" alt="icon" />
               <h2 className="headTitle">{local.linkSentTitle[lang]}</h2>
               <p className="content">{local.linkSentContent[lang]}</p>

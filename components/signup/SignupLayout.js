@@ -7,46 +7,52 @@ const Signuplayout = ({ step, children }) => {
     switch (step) {
       case 1:
         return (
-          <h1 className="Title_signup font-bold text-gray-700">
+          <h1 className="title">
             {local.signupTitle[lang]} <img src="/img/dexef_logo.svg" alt="logo" className="inline mb-1 mx-2" />
           </h1>
         );
         break;
       case 2:
-        return <h1 className="Title_signup font-bold text-gray-700">{local.varifyPhoneTitle[lang]}</h1>;
+        return <h1 className="title">{local.varifyPhoneTitle[lang]}</h1>;
         break;
       case 3:
-        return <h1 className="Title_signup font-bold text-gray-700">{local.accountInfoTitle[lang]}</h1>;
+        return <h1 className="title">{local.accountInfoTitle[lang]}</h1>;
         break;
       default:
         break;
     }
   }
   return (
-    <div className="lg:flex justify-between items-center pt-8 lg:pt-24 w-full">
-      <div className="title lg:w-1/2">
-        <div className="lg:max-w-lg">
+    <div className="row">
+      <div className="col-xl-5 col-md-6 div-space">
+        <div className="signUp-content">
           {content()}
-          <ul className="nav nav-pills d-flex gap-5 mt-3">
-            <li className="nav-item">
-              <a className={step === 1 ? " Rectangle-700 log-in" : "step"} aria-current="page">
-                1
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={step === 2 ? " Rectangle-700 log-in" : "step"} aria-current="page">
-                2
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={step === 3 ? " Rectangle-700 log-in" : "step"} aria-current="page">
-                3
-              </a>
-            </li>
-          </ul>
+          <div className="steps">
+            {step === 1 && (
+              <>
+                <span className="line active">1</span>
+                <span className="line">2</span>
+                <span>3</span>
+              </>
+            )}
+            {step === 2 && (
+              <>
+                <span className="line done">1</span>
+                <span className="line active">2</span>
+                <span>3</span>
+              </>
+            )}
+            {step === 3 && (
+              <>
+                <span className="line done">1</span>
+                <span className="line done">2</span>
+                <span className="active">3</span>
+              </>
+            )}
+          </div>
         </div>
       </div>
-      <div className="lg:w-1/2">{children}</div>
+      <div className="col-xl-4 col-md-6">{children}</div>
     </div>
   );
 };

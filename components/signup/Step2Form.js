@@ -11,10 +11,10 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
   const { lang, local } = useLang();
 
   const handleButtonState = () => {
-    if (typeof window === "undefined") return;
     const input = document.querySelector("#verifyCode");
     return input.value.length < 5 ? setIsDisabled(true) : setIsDisabled(false);
   };
+
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return (

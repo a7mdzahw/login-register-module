@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps, lang, js }) {
   return (
     <div className="App">
       <LangContextProvider lang={lang}>
-        <ProgressBar />
-        <Navbar user={pageProps.user || null} />
+        <ProgressBar options={{ showSpinner: false }} />
+        <Navbar user={pageProps.user || null} authState={pageProps.authState || "login"} />
         <div className="container-fluid">
           <Component {...pageProps} />
         </div>

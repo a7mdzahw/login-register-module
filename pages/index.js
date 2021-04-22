@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import Head from "next/head";
 
 export default function Home() {
@@ -16,12 +17,21 @@ export default function Home() {
 
 export async function getServerSideProps({ req, res }) {
   // checking user login state and redirect if not logged in
-  if (!req.cookies.email) {
-    res.clearCookie("token");
+  const token = req.cookies.token;
+  if (!token) {
     return { redirect: { destination: "/login", fallback: "blocking" } };
   } else {
+    const user = jwtDecode(token);
+    if (!user.email_verified)
+      return {
+        redirect: {
+          destination: "/link-sent",
+          fallback: "blocking",
+        },
+      };
+
     return {
-      props: { user: true },
+      props: { user },
     };
   }
 }

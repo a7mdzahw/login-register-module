@@ -65,11 +65,16 @@ module.exports = function signup(next) {
         validatePhoneToken: req.session.validatePhoneToken,
       });
       if (await checkValidaty(data, "/signup/verify_code", req, res, next)) return;
-      req.session.phoneValidationToken = data.response.phoneValidationToken;
+      req.session.phoneValidationToken = data.response.phoneValidationToken || "not_activated";
       res.redirect("/signup/finish");
     } catch (err) {
       return next.render(req, res, "/signup/verify_code", { serverError: err });
     }
+  });
+
+  router.post("/skip", async (req, res) => {
+    res.cookie("phoneValidationToken", "not_activated");
+    res.redirect("/signup/finish");
   });
 
   // handling step 3 of signup process
@@ -80,7 +85,7 @@ module.exports = function signup(next) {
       .post("/SignUp", {
         ...req.body,
         ...preRegisterData,
-        phoneValidationToken: phoneValidationToken || "not_validated",
+        phoneValidationToken: phoneValidationToken,
       })
       .then(async ({ data }) => {
         if (await checkValidaty(data, "/signup/finish", req, res, next)) return;
@@ -89,7 +94,9 @@ module.exports = function signup(next) {
         res.redirect("/link-sent");
       })
       .catch((err) => {
-        next.render(req, res, "/signup/finish", { serverError: (err.response && err.response.data) || err.message });
+        next.render(req, res, "/signup/finish", {
+          serverError: err.response?.data || err.message || err,
+        });
       });
   });
 

@@ -12,7 +12,7 @@ const LinkSentPassword = ({ someErr, time }) => {
         <>
           <span className="countDown">00:00:00</span>
           <form action="/ForgetPasswordRequest" method="POST">
-            <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={false}>
+            <button className="btn-resend btn-blue d-block w-100" disabled={false}>
               {local.linkSentBtn[lang]}
             </button>
           </form>
@@ -25,7 +25,7 @@ const LinkSentPassword = ({ someErr, time }) => {
           <span className="countDown">
             {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
           </span>
-          <button className="btn Rectangle-608 log-in btn-resend btn-block btn-blue" disabled={true}>
+          <button className="btn-resend  btn-blue d-block w-100" disabled={true}>
             {local.linkSentBtn[lang]}
           </button>
         </>
@@ -45,7 +45,7 @@ const LinkSentPassword = ({ someErr, time }) => {
             </div>
           </div>
           <div className="col-lg-6 col-12">
-            <div className="boxLinkSent text-center flex flex-col gap-1 items-center justify-center">
+            <div className="boxLinkSent text-center">
               <img src="/img/link_sent.svg" alt="icon" />
               <h2 className="headTitle">{local.linkSentTitle[lang]}</h2>
               <p className="content">{local.linkSentContent[lang]}</p>
@@ -61,6 +61,7 @@ const LinkSentPassword = ({ someErr, time }) => {
 
 export async function getServerSideProps({ req, res }) {
   const pass_id = req.cookies.resetPassword_ID;
+  if (!pass_id) return { redirect: { destination: "/login", fallback: "blocking" } };
   try {
     const { data } = await http.post(`/EmailVerificationCountDown/${pass_id}`);
     return { props: { time: data.time } };

@@ -35,7 +35,14 @@ export const getServerSideProps = async ({ req, res, query }) => {
   const response = await http.get(`/PhoneVerificationCountDown/${req.cookies.validatePhoneToken}`);
   const { data } = await http.post("/signup", { step: 2 });
 
-  return { props: { timeRemaining: response.data.time, step: query.step || data.step, error: JSON.stringify(query) } };
+  return {
+    props: {
+      timeRemaining: response.data.time,
+      step: query.step || data.step,
+      error: JSON.stringify(query),
+      authState: "signup",
+    },
+  };
 };
 
 export default Signup;

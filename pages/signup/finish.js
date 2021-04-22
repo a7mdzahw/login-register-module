@@ -15,7 +15,7 @@ const Signup = ({ step, error, workfields, companySizeData }) => {
       </Head>
       <div className="row">
         <Signuplayout step={step}>
-          {errObj.serverError && errObj.serverError.title}
+          {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
           <Step3Form
             error={errObj.error}
             body={errObj.body}
@@ -44,11 +44,12 @@ export const getServerSideProps = async ({ req, res, query }) => {
         workfields,
         companySizeData,
         error: JSON.stringify(query),
+        authState: "signup",
       },
     };
   } catch (err) {
     console.log(err.message);
-    return { props: { step: query.step || 1, error: JSON.stringify(query) } };
+    return { props: { step: query.step || 1, error: JSON.stringify(query), authState: "signup" } };
   }
   // setting sign up step to step 3
 };

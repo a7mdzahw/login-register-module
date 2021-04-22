@@ -103,6 +103,10 @@ body {
   text-transform: capitalize;
 }
 
+.select-div {
+  font-family: "cairo-regular";
+}
+
 .select-div,
 .select-country {
   margin-bottom: 15px;
@@ -336,6 +340,11 @@ input {
   padding: 7px 28px 6px 28px !important;
   color: #92a1b6;
   font-size: 16px;
+}
+#change_lang {
+  color: #92a1b6;
+  font-family: "cairo-regular";
+  outline: none;
 }
 .navbar .lang .dropdown-toggle:hover {
   color: #92a1b6 !important;
@@ -890,6 +899,9 @@ input {
   margin-right: 30px;
 }
 .btn-timer {
+  background: none;
+  border: none;
+  color: #0099ff;
   text-decoration: none;
   width: 30%;
 }

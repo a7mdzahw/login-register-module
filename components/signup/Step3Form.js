@@ -17,6 +17,7 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
   const handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
   const handleCheckSubdomain = async () => {
+    setDomainErr(false);
     try {
       const res = await companyHttp.post(`/Comapny/CheckAvailableSubDomain?SubDomain=${data.subDomain}`);
       if (res.data.state.code === "Status-System-1013") return;

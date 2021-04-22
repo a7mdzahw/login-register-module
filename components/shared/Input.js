@@ -1,6 +1,8 @@
 import React from "react";
+import useLang from "../../context/LangContext";
 
 const ErrorMessage = ({ error, apiError }) => {
+  const { lang, localErrs } = useLang();
   return (
     <>
       {error && (
@@ -65,7 +67,7 @@ const Input = ({ label, name, value, onChange, error, type, apiError = [], class
         name={name}
         id={name}
         value={value}
-        type="text"
+        type={type || "text"}
         onChange={onChange}
         {...props}
         autoFocus={error}

@@ -8,7 +8,8 @@ const Signuplayout = ({ step, children }) => {
       case 1:
         return (
           <h1 className="title">
-            {local.signupTitle[lang]} <img src="/img/dexef_logo.svg" alt="logo" className="inline mb-1 mx-2" />
+            {local.signupTitle[lang]}{" "}
+            <img src="/img/dexef_logo.svg" style={{ height: 45 }} alt="logo" className="inline mb-1 mx-2" />
           </h1>
         );
         break;

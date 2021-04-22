@@ -18,9 +18,11 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
-        <a className="btn-timer" disabled={false} href="/signup/finish">
-          {local.varifyPhoneBtnSkip[lang]}
-        </a>
+        <form action="/skip" method="POST" className="d-flex align-items-center">
+          <button className="btn-timer" disabled={false}>
+            {local.varifyPhoneBtnSkip[lang]}
+          </button>
+        </form>
       );
     } else {
       // Render a countdown

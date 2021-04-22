@@ -21,7 +21,7 @@ const Login = ({ error }) => {
           <div className="login-content">
             <h1 className="title">
               {local.loginHedTitle[lang]}
-              <img className="dexef" src="/img/svg/dexef_logo.svg" alt="dexef" />{" "}
+              <img className="dexef" src="/img/svg/dexef_logo.svg" alt="dexef" style={{ height: 45 }} />{" "}
             </h1>
           </div>
         </div>
@@ -46,14 +46,14 @@ export const getServerSideProps = async ({ req, res, query }) => {
   }
 
   if (req.cookies.dexefForgeryKey && req.cookies.dexefForgeryKey !== "undefined")
-    return { props: { error: JSON.stringify(query) } };
+    return { props: { error: JSON.stringify(query), authState: "login" } };
   // fetching dexefkey on first render
   try {
     const { data } = await http.post("/LoginRequest");
     res.cookie("dexefForgeryKey", data.token);
-    return { props: { error: JSON.stringify(query) } };
+    return { props: { error: JSON.stringify(query), authState: "login" } };
   } catch {
-    return { props: { error: JSON.stringify(query) } };
+    return { props: { error: JSON.stringify(query), authState: "login" } };
   }
 };
 

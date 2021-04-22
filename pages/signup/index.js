@@ -31,7 +31,7 @@ const Signup = ({ step, error, js }) => {
 export const getServerSideProps = async ({ req, res, query }) => {
   // checking login state and redirect if logged in
   if (req.cookies.email) return { redirect: { destination: "/", fallback: "blocking" } };
-  if (req.cookies.phoneValidationToken) return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
+  // if (req.cookies.phoneValidationToken) return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
   // fetching current step from server
   try {
     const { data } = await http.post("/signup");
@@ -40,11 +40,12 @@ export const getServerSideProps = async ({ req, res, query }) => {
         step: query.step || data.step,
         error: JSON.stringify(query),
         js: query.js || "true",
+        authState: "signup",
       },
     };
   } catch (err) {
     return {
-      props: { step: query.step, error: JSON.stringify(query), js: query.js || "true" },
+      props: { step: query.step, error: JSON.stringify(query), js: query.js || "true", authState: "signup" },
     };
   }
 };

@@ -28,7 +28,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
           value={data.fullName || ""}
           onChange={handleChange}
         />
-        <div className="input-div">
+        <div className="select-div">
           <label htmlFor="countryCode" className="labelName">
             {local.signupCountry[lang]}
           </label>
@@ -36,11 +36,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
             name="countryCode"
             placeholder="select country"
             style={{ border: 0 }}
-            className={
-              getError(error, "countryCode")
-                ? "form-select form-select-lg  border border-danger"
-                : "form-select form-select-lg mb-3"
-            }
+            className={getError(error, "countryCode") ? "dim-label input border border-danger " : "dim-label input"}
             defaultValue="none"
             value={data.countryCode}
             onChange={handleChange}

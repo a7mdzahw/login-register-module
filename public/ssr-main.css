@@ -896,6 +896,8 @@ input {
 }
 .signUp .btn-div .btn-verify {
   width: 70%;
+  border-radius: 4px;
+  background-color: var(--dimmed-half);
   margin-right: 30px;
 }
 .btn-timer {
@@ -1090,6 +1092,8 @@ html[dir="rtl"] .react-tel-input .selected-flag .arrow {
 }
 html[dir="rtl"] body .signUp .btn-verify {
   margin-right: inherit;
+  border-radius: 4px;
+  background-color: var(--dimmed-half);
   margin-left: 30px;
 }
 html[dir="rtl"] body .forgot-password .div-space {

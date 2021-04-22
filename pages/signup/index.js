@@ -30,7 +30,7 @@ const Signup = ({ step, error, js }) => {
 
 export const getServerSideProps = async ({ req, res, query }) => {
   // checking login state and redirect if logged in
-  if (req.cookies.email) return { redirect: { destination: "/", fallback: "blocking" } };
+  if (req.cookies.token) return { redirect: { destination: "/", fallback: "blocking" } };
   // if (req.cookies.phoneValidationToken) return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
   // fetching current step from server
   try {

@@ -5,7 +5,7 @@ module.exports = function (req, res, next) {
       res.redirect("/signup");
       break;
     case "/signup/finish":
-      if (req.cookies.phoneValidationToken) return next();
+      if (req.session.phoneValidationToken) return next();
       res.redirect("/signup");
     default:
       next();

@@ -73,7 +73,7 @@ module.exports = function signup(next) {
   });
 
   router.post("/skip", async (req, res) => {
-    res.cookie("phoneValidationToken", "not_activated");
+    req.session.phoneValidationToken = "not_activated";
     res.redirect("/signup/finish");
   });
 

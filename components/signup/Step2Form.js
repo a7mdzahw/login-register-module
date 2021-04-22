@@ -18,8 +18,8 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
-        <form action="/skip" method="POST" className="d-flex align-items-center">
-          <button className="btn-timer" disabled={false}>
+        <form action="/skip" method="POST" className="d-flex align-items-center navbar">
+          <button className="btn-signUp" disabled={false} type="submit">
             {local.varifyPhoneBtnSkip[lang]}
           </button>
         </form>

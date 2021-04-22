@@ -6,13 +6,13 @@ import Footer from "../components/shared/footer";
 import Navbar from "../components/shared/Navbar";
 import { LangContextProvider } from "../context/LangContext";
 
-function MyApp({ Component, pageProps, lang, js }) {
+function MyApp({ Component, pageProps, lang, token, js }) {
   const router = useRouter();
   return (
     <div className="App">
       <LangContextProvider lang={lang}>
         <ProgressBar options={{ showSpinner: false }} />
-        <Navbar user={pageProps.user || null} authState={pageProps.authState || "login"} />
+        <Navbar user={pageProps.user || token || null} authState={pageProps.authState || "login"} />
         <div className="container-fluid">
           <Component {...pageProps} />
         </div>
@@ -50,8 +50,9 @@ MyApp.getInitialProps = async (appContext) => {
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext);
   const lang = req.cookies.lang;
+  const token = req.cookies.token;
 
-  return { ...appProps, lang, js: req.cookies.js };
+  return { ...appProps, lang, js: req.cookies.js, token };
 };
 
 export default MyApp;

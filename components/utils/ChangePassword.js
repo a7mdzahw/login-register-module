@@ -9,14 +9,14 @@ const ChangePassword = ({ token, error, body }) => {
   const [data, setData] = useState({ ...body });
   const handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
   return (
-    <div className="sm:mx-12 lg:mx-auto lg:max-w-7xl lg:h-64 lg:pt-40  flex justify-center items-center">
-      <div className="flex flex-col md:flex-row items-center justify-between w-10/12">
-        <div className="div-space w-full md:w-1/2">
+    <div className="signUp">
+      <div className="row">
+        <div className="col-xl-5 col-md-6 div-space">
           <div className="signUp-content">
-            <h1 className="title font-bold uppercase text-3xl text-gray-700">{local.changePasswordTitle[lang]}</h1>
+            <h1 className="title">{local.changePasswordTitle[lang]}</h1>
           </div>
         </div>
-        <form className="w-full md:w-1/2" action={`/ChangePassword/${token}`} method="POST">
+        <form className="col-xl-4 col-md-6" action={`/ChangePassword/${token}`} method="POST">
           <Input
             type="password"
             value={data.password}
@@ -35,9 +35,7 @@ const ChangePassword = ({ token, error, body }) => {
             error={getError(error, "confirmPassword")}
             placeholder={local.changePasswordConfirmPassword[lang]}
           />
-          <button className="px-4 py-2 bg-blue-400 text-blue-100 rounded-lg w-full">
-            {local.changePasswordBtn[lang]}
-          </button>
+          <button className="btn-submit d-block w-100 btn-blue mt-5">{local.changePasswordBtn[lang]}</button>
         </form>
       </div>
     </div>

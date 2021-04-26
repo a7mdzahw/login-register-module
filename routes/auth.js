@@ -49,25 +49,22 @@ module.exports = function (next) {
 
   router.post("/ResendEmailVerification", async (req, res) => {
     if (!req.cookies.token) return res.redirect("/login");
+
     const user = jwt.decode(req.cookies.token);
     let email = user.email;
     const token = req.cookies.token;
-    console.log("email", email);
-    console.log("token ", token);
+
     http.defaults.headers.Authorization = `Bearer ${token}`;
     http.post(`/ResendEmailVerification?Email=${email}`).then(({ data }) => {
-      console.log("Link sent ", data);
       res.redirect("/link-sent");
     });
   });
 
   router.post("/EmailVerificationCountDown/:id", async (req, res) => {
     let id = req.params.id;
-    console.log("resend", id);
     http
       .get("/EmailVerificationCountDown?UserId=" + id)
       .then(({ data }) => {
-        console.log("get time ", data);
         res.status(200).send({ time: data.response });
       })
       .catch((err) => res.send({}));
@@ -76,7 +73,6 @@ module.exports = function (next) {
   router.post("/VerifyUserEmail", (req, res) => {
     const EmailToken = req.body.EmailToken;
     http.post("/VerifyUserEmail?EmailToken=" + EmailToken).then(({ data }) => {
-      console.log(data);
       res.send(data);
     });
   });

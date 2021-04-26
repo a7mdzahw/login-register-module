@@ -44,7 +44,6 @@ module.exports = function signup(next) {
     }
     try {
       const { data } = await http.post("/PreRegisteration", { ...req.body, country: country.name });
-      console.log(data);
       if (await checkValidaty(data, "/signup", req, res, next)) return;
       req.session.preRegisterData = req.body;
       req.session.validatePhoneToken = data.response?.verifyPhoneToken;
@@ -72,7 +71,7 @@ module.exports = function signup(next) {
     }
   });
 
-  router.post("/skip", async (req, res) => {
+  router.get("/skip", async (req, res) => {
     req.session.phoneValidationToken = "not_activated";
     res.redirect("/signup/finish");
   });

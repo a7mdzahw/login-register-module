@@ -22,7 +22,6 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
       <form action="/signup1" method="POST" noValidate className="w-100">
         <Input
           name="fullName"
-          type="text"
           label={local.signupFullName[lang]}
           error={getError(error, "fullName")}
           value={data.fullName || ""}
@@ -37,8 +36,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
             placeholder="select country"
             style={{ border: 0 }}
             className={getError(error, "countryCode") ? "dim-label input border border-danger " : "dim-label input"}
-            defaultValue="none"
-            value={data.countryCode}
+            value={data.countryCode || "none"}
             onChange={handleChange}
           >
             <option value="none" disabled>

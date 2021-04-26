@@ -8,7 +8,7 @@ export default function Home() {
         <title>Dexef</title>
       </Head>
 
-      <div className="container">
+      <div className="container" style={{ minHeight: "75vh" }}>
         <h1>DEXEF Home Page</h1>
       </div>
     </div>

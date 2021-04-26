@@ -22,6 +22,7 @@ const Verify = ({ currentPage }) => {
 export default Verify;
 
 export async function getServerSideProps({ req, res, query, params }) {
+  res.clearCookie("token");
   let EmailToken = params.id;
   try {
     const { data } = await http.post("/VerifyUserEmail", { EmailToken });

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import useLang from "../../context/LangContext";
 
 const ErrorMessage = ({ error, apiError }) => {
   const { lang, localErrs } = useLang();
+
   return (
     <>
       {error && (
@@ -21,7 +22,9 @@ const ErrorMessage = ({ error, apiError }) => {
   );
 };
 
-const Input = ({ label, name, value, onChange, error, type, apiError = [], className, ...props }) => {
+const Input = ({ label, name, value, onChange, error, type, info, apiError = [], className, ...props }) => {
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
+
   if (type === "select") {
     return (
       <div className="select-div">
@@ -67,12 +70,21 @@ const Input = ({ label, name, value, onChange, error, type, apiError = [], class
         name={name}
         id={name}
         value={value}
-        type={type || "text"}
+        type={type === "password" ? (isPasswordShown ? "text" : "password") : type || "text"}
         onChange={onChange}
         {...props}
         autoFocus={error}
         className={error || apiError.length > 0 ? `${className} border border-danger input` : `${className} input`}
       />
+      {type === "password" && (
+        <img
+          className="showPassword"
+          src={isPasswordShown ? "/img/svg/hide_password.svg" : "/img/svg/show_password.svg"}
+          alt="show"
+          onClick={() => setIsPasswordShown(!isPasswordShown)}
+        />
+      )}
+      {info && <span className="info">{info}</span>}
       <ErrorMessage error={error} apiError={apiError} />
     </div>
   );

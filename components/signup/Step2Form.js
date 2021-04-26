@@ -8,6 +8,7 @@ import Input from "../shared/Input";
 
 const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
   const [isDisabled, setIsDisabled] = useState(true);
+  const [initialTime, setInitialTime] = useState(millseconds);
   const { lang, local } = useLang();
 
   const handleButtonState = () => {
@@ -17,12 +18,18 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
+      setInitialTime(0);
       return (
-        <form action="/skip" method="POST" className="d-flex align-items-center navbar">
-          <button className="btn-signUp" disabled={false} type="submit">
-            {local.varifyPhoneBtnSkip[lang]}
-          </button>
-        </form>
+        // <form action="/skip" method="POST" className="d-flex align-items-center w-100">
+        <a
+          className="btn-blue px-2 pt-2 text-decoration-none"
+          disabled={false}
+          href="/skip"
+          style={{ width: "30%", textAlign: "center" }}
+        >
+          {local.varifyPhoneBtnSkip[lang]}
+        </a>
+        // </form>
       );
     } else {
       // Render a countdown
@@ -54,7 +61,7 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
           <button className="btn-verify btn-blue" disabled={isDisabled}>
             {local.varifyPhoneBtnVerify[lang]}
           </button>
-          <Countdown date={Date.now() + millseconds} renderer={renderer} />
+          <Countdown date={Date.now() + initialTime} renderer={renderer} />
         </div>
       </form>
     </>

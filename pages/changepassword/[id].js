@@ -31,7 +31,6 @@ export async function getServerSideProps({ params, query }) {
 
   try {
     const { data } = await http.get("/ValidateForgetPasswordToken?Token=" + changePasswordToken);
-    console.log("result ", data);
     if (data.state.code === "Status-System-1013") {
       return {
         props: {

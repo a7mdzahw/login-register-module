@@ -31,6 +31,7 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
         name="companyName"
         label={local.accountInfoCompnayName[lang]}
         value={data.companyName || ""}
+        placeholder={local.accountInfoCompnayName[lang]}
         onChange={handleChange}
         error={getError(error, "companyName")}
         apiError={getApiError(apiErrors, "Company Name")}
@@ -41,7 +42,7 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
           workfields={workfields}
           label={local.accountInfoField[lang]}
           className="dim-label"
-          placeholder="choose field"
+          placeholder="Company Field"
           type="select"
           value={data.workField}
           onChange={handleChange}
@@ -53,7 +54,7 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
           label={local.accountInfoCompanySize[lang]}
           type="select"
           companysizes={companySizeData}
-          placeholder="choose size"
+          placeholder="Company size"
           className="dim-label"
           value={data.companySize}
           onChange={handleChange}
@@ -66,6 +67,7 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
         onBlur={handleCheckSubdomain}
         label={local.accountInfoSubDomin[lang]}
         value={data.subDomain || ""}
+        placeholder="dexef112.dexeferp.net"
         onChange={handleChange}
         error={getError(error, "subDomain")}
         apiError={getApiError(apiErrors, "SubDomain")}
@@ -78,6 +80,7 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
       <Input
         name="email"
         label={local.accountInfoEmail[lang]}
+        placeholder="mailbox@mail.com"
         value={data.email || ""}
         onChange={handleChange}
         error={getError(error, "email")}
@@ -87,16 +90,18 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
         name="password"
         label={local.accountInfoPassword[lang]}
         type="password"
+        placeholder={local.accountInfoPlacPassword[lang]}
         value={data.password || ""}
         onChange={handleChange}
+        info={local.accountInfoPasswordInfo[lang]}
         error={getError(error, "password")}
         apiError={getApiError(apiErrors, "Password")}
       />
-      {/* <label className="text-sm">{local.accountInfoPasswordInfo[lang]}</label> */}
       <Input
         name="confirmpassword"
         type="password"
         label={local.accountInfoConfirmPassword[lang]}
+        placeholder={local.accountInfoPlacConfirmPassword[lang]}
         value={data.confirmpassword || ""}
         onChange={handleChange}
         error={getError(error, "confirmpassword")}

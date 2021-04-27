@@ -1,9 +1,9 @@
 import App from "next/app";
 import { useRouter } from "next/router";
 import ProgressBar from "nextjs-progressbar";
-import Footer from "../components/shared/footer";
+import Footer from "@Components/shared/footer";
 
-import Navbar from "../components/shared/Navbar";
+import Navbar from "@Components/shared/Navbar";
 import { LangContextProvider } from "../context/LangContext";
 
 function MyApp({ Component, pageProps, lang, token, js }) {

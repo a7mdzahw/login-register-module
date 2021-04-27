@@ -12,7 +12,7 @@ class MyDocument extends Document {
       <Html dir={lang === "ar" ? "rtl" : "ltr"} lang={lang}>
         <Head>
           {/* adding styles and favicon */}
-          <link rel="shortcut icon" href="/dexef.jpg" type="image/x-icon" />
+          <link rel="shortcut icon" href="/dexe_icon.png" type="image/x-icon" />
           <link rel="stylesheet" href="/ssr-main.css" />
           {/* <link rel="stylesheet" href="/styles.css" /> */}
         </Head>

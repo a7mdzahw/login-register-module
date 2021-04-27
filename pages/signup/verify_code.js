@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
 
-import Signuplayout from "../../components/signup/SignupLayout";
-import Step2Form from "../../components/signup/Step2Form";
+import Signuplayout from "@Components/signup/SignupLayout";
+import Step2Form from "@Components/signup/Step2Form";
 
 import http from "../../lib/clientHttp";
 

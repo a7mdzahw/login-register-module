@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import Input from "../components/shared/Input";
+import Input from "@Components/shared/Input";
 import getError from "../lib/getError";
 import getApiError from "../lib/getApiError";
 import useLang from "../context/LangContext";

@@ -3,7 +3,7 @@ const express = require("express");
 const validate = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-const check = require("../lib/check");
+const check = require("../Lib/check");
 const http = require("../lib/serverHttp");
 const checkValidaty = require("../lib/checkValidaty");
 

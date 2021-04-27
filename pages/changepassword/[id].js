@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import http from "../../lib/serverHttp";
-import ChangePassword from "../../components/utils/ChangePassword";
+import ChangePassword from "@Components/utils/ChangePassword";
 
 const VerifyPassword = ({ currentPage, token, error }) => {
   const errObj = JSON.parse(error);

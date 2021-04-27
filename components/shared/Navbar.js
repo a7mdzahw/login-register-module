@@ -90,18 +90,11 @@ const Navbar = ({ user, authState }) => {
             </>
           )}
           {user && (
-            <>
-              <li className="nav-item">
-                <Link href="/">
-                  <a className="nav-link">Home</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/logout">
-                  <a className="btn-signUp">logout</a>
-                </Link>
-              </li>
-            </>
+            <li className="nav-item">
+              <Link href="/logout">
+                <a className="btn-signUp">logout</a>
+              </Link>
+            </li>
           )}
         </Nav>
       </BSNav.Collapse>

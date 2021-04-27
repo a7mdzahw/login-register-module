@@ -3,8 +3,8 @@ import Head from "next/head";
 
 import http from "../../lib/clientHttp";
 
-import Signuplayout from "../../components/signup/SignupLayout";
-import Step1Form from "../../components/signup/Step1Form";
+import Signuplayout from "@Components/signup/SignupLayout";
+import Step1Form from "@Components/signup/Step1Form";
 
 const Signup = ({ step, error, js }) => {
   const errObj = JSON.parse(error);

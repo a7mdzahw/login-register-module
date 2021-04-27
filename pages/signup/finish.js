@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import Signuplayout from "../../components/signup/SignupLayout";
-import Step3Form from "../../components/signup/Step3Form";
+import Signuplayout from "@Components/signup/SignupLayout";
+import Step3Form from "@Components/signup/Step3Form";
 
 import http from "../../lib/clientHttp";
 import companyHttp from "../../lib/companyHttp";

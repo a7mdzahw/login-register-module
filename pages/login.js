@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
 
-import LoginForm from "../components/login/LoginForm";
-import http from "../lib/clientHttp";
+import LoginForm from "@Components/login/LoginForm";
+import http from "lib/clientHttp";
 import local from "../public/assets/Localization.json";
 import useLang from "../context/LangContext";
 

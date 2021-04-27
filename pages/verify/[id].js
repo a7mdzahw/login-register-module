@@ -1,6 +1,6 @@
 import React from "react";
-import AccountVerified from "../../components/login/AccountVerified";
-import LinkExpired from "../../components/login/LinkExpired";
+import AccountVerified from "@Components/login/AccountVerified";
+import LinkExpired from "@Components/login/LinkExpired";
 import http from "../../lib/clientHttp";
 
 const Verify = ({ currentPage }) => {

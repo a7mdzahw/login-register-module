@@ -23,6 +23,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
         <Input
           name="fullName"
           label={local.signupFullName[lang]}
+          placeholder={local.signupFullName[lang]}
           error={getError(error, "fullName")}
           value={data.fullName || ""}
           onChange={handleChange}
@@ -69,6 +70,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
               className: phoneError ? "form-control border border-danger" : "form-control",
             }}
           />
+          <span className="info"> {local.signupPhoneInfo[lang]}</span>
           {phoneError && <p className="text-danger mt-1">{local.signupErrPhone[lang]}</p>}
           {apiPhoneErr && <p className="text-danger mt-1">{apiPhoneErr.description}</p>}
         </div>

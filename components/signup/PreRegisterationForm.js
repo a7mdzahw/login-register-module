@@ -4,27 +4,26 @@ import Link from "next/link";
 import Input from "../shared/Input";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import countries from "../../lib/country";
-import getError from "../../lib/getError";
-import getApiError from "../../lib/getApiError";
+import countries from "../../public/assets/countries";
+import { client_error, api_error } from "lib";
 import useLang from "../../context/LangContext";
 
-const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
+const PreRegisterationForm = ({ error, body, apiErrors, phoneError, js }) => {
   const { lang, local } = useLang();
-  const apiPhoneErr = getApiError(apiErrors, "Phone");
-  const apiCountryErr = getApiError(apiErrors, "Country");
+  const apiPhoneErr = api_error(apiErrors, "Phone");
+  const apiCountryErr = api_error(apiErrors, "Country");
   const [data, setData] = useState({ ...body });
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   return (
     <>
-      <form action="/signup1" method="POST" noValidate className="w-100">
+      <form action="/pre_register" method="POST" noValidate className="w-100">
         <Input
           name="fullName"
           label={local.signupFullName[lang]}
           placeholder={local.signupFullName[lang]}
-          error={getError(error, "fullName")}
+          error={client_error(error, "fullName")}
           value={data.fullName || ""}
           onChange={handleChange}
         />
@@ -36,7 +35,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
             name="countryCode"
             placeholder="select country"
             style={{ border: 0 }}
-            className={getError(error, "countryCode") ? "dim-label input border border-danger " : "dim-label input"}
+            className={client_error(error, "countryCode") ? "dim-label input border border-danger " : "dim-label input"}
             value={data.countryCode || "none"}
             onChange={handleChange}
           >
@@ -49,7 +48,7 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
               </option>
             ))}
           </select>
-          {getError(error, "countryCode") && <p className="text-danger">{local.signupErrCountry[lang]}</p>}
+          {client_error(error, "countryCode") && <p className="text-danger">{local.signupErrCountry[lang]}</p>}
           {apiCountryErr && <p className="text-danger mt-1">{apiCountryErr.description}</p>}
         </div>
         <div className=" mb-3 input-div">
@@ -97,4 +96,4 @@ const Step1Form = ({ error, body, apiErrors, phoneError, js }) => {
   );
 };
 
-export default Step1Form;
+export default PreRegisterationForm;

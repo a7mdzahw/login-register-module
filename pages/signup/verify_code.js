@@ -2,9 +2,9 @@ import React from "react";
 import Head from "next/head";
 
 import Signuplayout from "@Components/signup/SignupLayout";
-import Step2Form from "@Components/signup/Step2Form";
+import VerifyCodeForm from "@Components/signup/VerifyCodeForm";
 
-import http from "../../lib/clientHttp";
+import * as http from "lib/http";
 
 const Signup = ({ step, error, timeRemaining }) => {
   const errObj = JSON.parse(error);
@@ -16,7 +16,7 @@ const Signup = ({ step, error, timeRemaining }) => {
       </Head>
       <div className="row">
         <Signuplayout step={step}>
-          <Step2Form
+          <VerifyCodeForm
             error={errObj.error}
             body={errObj.body}
             apiErrors={errObj.apiErrors}
@@ -32,8 +32,8 @@ const Signup = ({ step, error, timeRemaining }) => {
 export const getServerSideProps = async ({ req, res, query }) => {
   if (req.cookies.phoneValidationToken) return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
 
-  const response = await http.get(`/PhoneVerificationCountDown/${req.cookies.validatePhoneToken}`);
-  const { data } = await http.post("/signup", { step: 2 });
+  const response = await http.client.get(`/PhoneVerificationCountDown/${req.cookies.validatePhoneToken}`);
+  const { data } = await http.client.post("/signup", { step: 2 });
 
   return {
     props: {

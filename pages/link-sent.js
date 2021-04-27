@@ -2,7 +2,7 @@ import jwtDecode from "jwt-decode";
 import React from "react";
 import Head from "next/head";
 import CountDown, { zeroPad } from "react-countdown";
-import http from "../lib/clientHttp";
+import * as http from "../lib/http";
 import useLang from "../context/LangContext";
 
 function LinkSent({ time }) {
@@ -63,7 +63,7 @@ export async function getServerSideProps({ req, res, query }) {
   const user = jwtDecode(req.cookies.token);
   if (user.email_verified) return { redirect: { destination: "/login", fallback: "blocking" } };
   try {
-    const { data } = await http.post(`/EmailVerificationCountDown/${user.sub}`);
+    const { data } = await http.client.post(`/EmailVerificationCountDown/${user.sub}`);
     return { props: { time: data.time } };
   } catch (err) {
     return { props: { time: 50 } };

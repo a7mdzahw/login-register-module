@@ -32,8 +32,7 @@ const Input = ({ label, name, value, onChange, error, type, info, apiError = [],
         <select
           id={name}
           name={name}
-          value={value}
-          defaultValue="none"
+          value={value || "none"}
           onChange={onChange}
           {...props}
           className={error || apiError.length > 0 ? `${className} border border-danger input` : `${className} input`}

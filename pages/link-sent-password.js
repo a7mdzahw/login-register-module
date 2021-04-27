@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import http from "../lib/clientHttp";
+import * as http from "lib/http";
 import CountDown, { zeroPad } from "react-countdown";
 import useLang from "../context/LangContext";
 
@@ -63,7 +63,7 @@ export async function getServerSideProps({ req, res }) {
   const pass_id = req.cookies.resetPassword_ID;
   if (!pass_id) return { redirect: { destination: "/login", fallback: "blocking" } };
   try {
-    const { data } = await http.post(`/EmailVerificationCountDown/${pass_id}`);
+    const { data } = await http.client.post(`/EmailVerificationCountDown/${pass_id}`);
     return { props: { time: data.time } };
   } catch (err) {
     return { props: { someErr: true, time: 1 } };

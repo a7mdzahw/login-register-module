@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 import Head from "next/head";
 
-export default function Home() {
+export default function Home({ user }) {
   return (
     <div>
       <Head>
@@ -10,6 +10,7 @@ export default function Home() {
 
       <div className="container" style={{ minHeight: "80vh" }}>
         <h1>DEXEF Home Page</h1>
+        <h2>{JSON.stringify(user, null, 2)}</h2>
       </div>
     </div>
   );

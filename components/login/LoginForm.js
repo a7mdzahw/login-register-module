@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import local from "../../public/assets/Localization.json";
 
 import Input from "../shared/Input";
-import getError from "../../lib/getError";
-import getApiError from "../../lib/getApiError";
 import useLang from "../../context/LangContext";
+import { client_error, api_error } from "lib";
 
 const LoginForm = ({ error, body, apiErrors }) => {
   const { lang, local } = useLang();
@@ -21,20 +19,20 @@ const LoginForm = ({ error, body, apiErrors }) => {
           label={local.loginEmail[lang]}
           type="email"
           placeholder={local.loginEmailPlacHolder[lang]}
-          error={getError(error, "userName")}
+          error={client_error(error, "userName")}
           value={data.userName}
           onChange={handleChange}
-          apiError={getApiError(apiErrors, "UserName")}
+          apiError={api_error(apiErrors, "UserName")}
         />
         <Input
           name="password"
           label={local.loginPassword[lang]}
           placeholder={local.loginPasswordPlacHolder[lang]}
           type="password"
-          error={getError(error, "password")}
+          error={client_error(error, "password")}
           value={data.password}
           onChange={handleChange}
-          apiError={getApiError(apiErrors, "Password")}
+          apiError={api_error(apiErrors, "Password")}
         />
       </div>
       <div className="div-remember">

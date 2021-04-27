@@ -3,9 +3,9 @@ const router = express.Router();
 const Joi = require("joi");
 const local = require("../public/assets/Localization.json");
 
-const http = require("../lib/serverHttp");
-const check = require("../lib/check");
-const checkValidaty = require("../lib/checkValidaty");
+const http = require("../lib/http");
+const { check } = require("../lib");
+const validate_response = require("../lib");
 const validatePassword = require("../models/Password");
 
 module.exports = function (next) {
@@ -40,8 +40,8 @@ module.exports = function (next) {
       newPassword: req.body.password,
     };
     try {
-      const { data } = await http.post("/ForgetPassword", reSetpasswordObj);
-      if (await checkValidaty(data, `/changepassword/${token}`, req, res, next)) return;
+      const { data } = await http.server.post("/ForgetPassword", reSetpasswordObj);
+      if (await validate_response(data, `/changepassword/${token}`, req, res, next)) return;
       res.redirect("/password-reset-success");
     } catch (error) {
       console.log(error);
@@ -76,8 +76,8 @@ const checkEmail = async (email, req, res, next) => {
 
 const forget_password_request = async (email, req, res, next) => {
   try {
-    const { data } = await http.post("/ForgetPasswordRequest", { email });
-    if (await checkValidaty(data, "/forget-password", req, res, next)) return;
+    const { data } = await http.server.post("/ForgetPasswordRequest", { email });
+    if (await validate_response(data, "/forget-password", req, res, next)) return;
     req.session.email = email;
     res.cookie("resetPassword_ID", data.response);
     res.redirect("/link-sent-password");

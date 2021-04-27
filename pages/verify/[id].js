@@ -1,7 +1,7 @@
 import React from "react";
 import AccountVerified from "@Components/login/AccountVerified";
 import LinkExpired from "@Components/login/LinkExpired";
-import http from "../../lib/clientHttp";
+import * as http from "lib/http";
 
 const Verify = ({ currentPage }) => {
   function content() {
@@ -25,7 +25,7 @@ export async function getServerSideProps({ req, res, query, params }) {
   res.clearCookie("token");
   let EmailToken = params.id;
   try {
-    const { data } = await http.post("/VerifyUserEmail", { EmailToken });
+    const { data } = await http.client.post("/VerifyUserEmail", { EmailToken });
     if (data.state.code === "Status-System-1013") {
       return { props: { currentPage: "AccountVerified" } };
     } else if (data.errors[0].code === "Error-UserProfile-1033") {

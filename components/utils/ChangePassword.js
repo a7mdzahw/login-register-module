@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useLang from "../../context/LangContext";
 
-import getError from "../../lib/getError";
+import { client_error } from "lib";
 import Input from "../shared/Input";
 
 const ChangePassword = ({ token, error, body }) => {
@@ -21,7 +21,7 @@ const ChangePassword = ({ token, error, body }) => {
             type="password"
             value={data.password}
             onChange={handleChange}
-            error={getError(error, "password")}
+            error={client_error(error, "password")}
             name="password"
             label={local.changePasswordPassword[lang]}
             placeholder={local.changePasswordPassword[lang]}
@@ -32,7 +32,7 @@ const ChangePassword = ({ token, error, body }) => {
             onChange={handleChange}
             name="confirmPassword"
             label={local.changePasswordConfirmPassword[lang]}
-            error={getError(error, "confirmPassword")}
+            error={client_error(error, "confirmPassword")}
             placeholder={local.changePasswordConfirmPassword[lang]}
           />
           <button className="btn-submit d-block w-100 btn-blue mt-5">{local.changePasswordBtn[lang]}</button>

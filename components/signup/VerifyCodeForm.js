@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Countdown, { zeroPad } from "react-countdown";
-import getApiError from "../../lib/getApiError";
-import getError from "../../lib/getError";
+import { client_error, api_error } from "lib";
 import useLang from "../../context/LangContext";
 import Input from "../shared/Input";
 
-const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
+const VerifyCodeForm = ({ error, apiErrors, millseconds, serverError }) => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [initialTime, setInitialTime] = useState(millseconds);
   const { lang, local } = useLang();
@@ -45,14 +44,14 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
   return (
     <>
       {serverError && <div className="text-red-500">{serverError}</div>}
-      <form action="/signup2" method="POST" className="w-full">
+      <form action="/verify_code" method="POST" className="w-full">
         <Input
           type="text"
           name="verifyCode"
           onChange={() => handleButtonState()}
           label={local.varifyPhoneVerifyCode[lang]}
-          error={getError(error, "verifyCode")}
-          apiError={getApiError(apiErrors, "VerifyCode")}
+          error={client_error(error, "verifyCode")}
+          apiError={api_error(apiErrors, "VerifyCode")}
         />
         <Link href="/signup">
           <a className="changeNumber">{local.varifyPhoneChangeNumber[lang]}</a>
@@ -61,11 +60,11 @@ const Step2Form = ({ error, apiErrors, millseconds, serverError }) => {
           <button className="btn-verify btn-blue" disabled={isDisabled}>
             {local.varifyPhoneBtnVerify[lang]}
           </button>
-          <Countdown date={Date.now() + initialTime} renderer={renderer} />
+          <Countdown date={Date.now() + 1 || initialTime} renderer={renderer} />
         </div>
       </form>
     </>
   );
 };
 
-export default Step2Form;
+export default VerifyCodeForm;

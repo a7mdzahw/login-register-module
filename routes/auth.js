@@ -3,16 +3,16 @@ const express = require("express");
 const validate = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-const check = require("../Lib/check");
-const http = require("../lib/serverHttp");
-const checkValidaty = require("../lib/checkValidaty");
+const { check } = require("../lib");
+const http = require("../lib/http");
+const { validate_response } = require("../lib");
 
 module.exports = function (next) {
   const router = express.Router();
   // handling fisrt login rendering and add dexefkey to cookies
   router.post("/LoginRequest", async (req, res) => {
     try {
-      const { data } = await http.post("/LoginRequest");
+      const { data } = await http.server.post("/LoginRequest");
       res.send({ token: data.response });
     } catch (error) {
       res.send({ error: error.message });
@@ -24,10 +24,10 @@ module.exports = function (next) {
     if (await check(validate, "/login", req, res, next)) return;
     // calling api
     try {
-      const { data } = await http.post("/Login", req.body, {
+      const { data } = await http.server.post("/Login", req.body, {
         headers: { dexefForgeryKey: req.cookies.dexefForgeryKey },
       });
-      if (await checkValidaty(data, "/login", req, res, next)) return;
+      if (await validate_response(data, "/login", req, res, next)) return;
       const user = jwt.decode(data.response.token);
       if (req.body.stayloggedin) {
         res.cookie("token", data.response.token, { maxAge: 1000 * 60 * 60 * 24 * 30 });
@@ -54,15 +54,15 @@ module.exports = function (next) {
     let email = user.email;
     const token = req.cookies.token;
 
-    http.defaults.headers.Authorization = `Bearer ${token}`;
-    http.post(`/ResendEmailVerification?Email=${email}`).then(({ data }) => {
+    http.server.defaults.headers.Authorization = `Bearer ${token}`;
+    http.server.post(`/ResendEmailVerification?Email=${email}`).then(({ data }) => {
       res.redirect("/link-sent");
     });
   });
 
   router.post("/EmailVerificationCountDown/:id", async (req, res) => {
     let id = req.params.id;
-    http
+    http.server
       .get("/EmailVerificationCountDown?UserId=" + id)
       .then(({ data }) => {
         res.status(200).send({ time: data.response });
@@ -72,7 +72,7 @@ module.exports = function (next) {
 
   router.post("/VerifyUserEmail", (req, res) => {
     const EmailToken = req.body.EmailToken;
-    http.post("/VerifyUserEmail?EmailToken=" + EmailToken).then(({ data }) => {
+    http.server.post("/VerifyUserEmail?EmailToken=" + EmailToken).then(({ data }) => {
       res.send(data);
     });
   });

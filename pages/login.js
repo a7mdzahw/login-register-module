@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 
 import LoginForm from "@Components/login/LoginForm";
-import http from "lib/clientHttp";
+import * as http from "lib/http";
 import local from "../public/assets/Localization.json";
 import useLang from "../context/LangContext";
 
@@ -49,7 +49,7 @@ export const getServerSideProps = async ({ req, res, query }) => {
     return { props: { error: JSON.stringify(query), authState: "login" } };
   // fetching dexefkey on first render
   try {
-    const { data } = await http.post("/LoginRequest");
+    const { data } = await http.client.post("/LoginRequest");
     res.cookie("dexefForgeryKey", data.token);
     return { props: { error: JSON.stringify(query), authState: "login" } };
   } catch {

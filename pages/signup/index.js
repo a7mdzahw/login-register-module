@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "next/head";
 
-import http from "../../lib/clientHttp";
+import * as http from "lib/http";
 
 import Signuplayout from "@Components/signup/SignupLayout";
-import Step1Form from "@Components/signup/Step1Form";
+import PreRegisterationForm from "@Components/signup/PreRegisterationForm";
 
 const Signup = ({ step, error, js }) => {
   const errObj = JSON.parse(error);
@@ -16,7 +16,7 @@ const Signup = ({ step, error, js }) => {
 
       <Signuplayout step={step}>
         {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
-        <Step1Form
+        <PreRegisterationForm
           error={errObj.error}
           body={errObj.body}
           apiErrors={errObj.apiErrors}
@@ -34,7 +34,7 @@ export const getServerSideProps = async ({ req, res, query }) => {
   // if (req.cookies.phoneValidationToken) return { redirect: { destination: "/signup/finish", fallback: "blocking" } };
   // fetching current step from server
   try {
-    const { data } = await http.post("/signup");
+    const { data } = await http.client.post("/signup");
     return {
       props: {
         step: query.step || data.step,

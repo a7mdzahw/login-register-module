@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import http from "../../lib/serverHttp";
+import * as http from "lib/http";
 import ChangePassword from "@Components/utils/ChangePassword";
 
 const VerifyPassword = ({ currentPage, token, error }) => {
@@ -30,7 +30,7 @@ export async function getServerSideProps({ params, query }) {
   const changePasswordToken = params.id;
 
   try {
-    const { data } = await http.get("/ValidateForgetPasswordToken?Token=" + changePasswordToken);
+    const { data } = await http.server.get("/ValidateForgetPasswordToken?Token=" + changePasswordToken);
     if (data.state.code === "Status-System-1013") {
       return {
         props: {

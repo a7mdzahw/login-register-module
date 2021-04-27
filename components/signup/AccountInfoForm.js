@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import useLang from "../../context/LangContext";
-import getApiError from "../../lib/getApiError";
-import getError from "../../lib/getError";
+import { client_error, api_error } from "lib";
 import Input from "../shared/Input";
-import companyHttp from "../../lib/companyHttp";
+import * as http from "lib/http";
 
 export const email_validation = (email) => {
   const regularExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return regularExp.test(String(email).toLowerCase());
 };
 
-const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
+const AccountInfoForm = ({ error, body, apiErrors, workfields, companySizeData }) => {
   const { lang, local } = useLang();
   const [domainErr, setDomainErr] = useState(false);
   const [data, setData] = useState({ ...body });
@@ -19,22 +18,22 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
   const handleCheckSubdomain = async () => {
     setDomainErr(false);
     try {
-      const res = await companyHttp.post(`/Comapny/CheckAvailableSubDomain?SubDomain=${data.subDomain}`);
+      const res = await http.company.post(`/Comapny/CheckAvailableSubDomain?SubDomain=${data.subDomain}`);
       if (res.data.state.code === "Status-System-1013") return;
       setDomainErr(res.data.response);
     } catch (err) {}
   };
 
   return (
-    <form action="/signup3" method="POST" noValidate>
+    <form action="/account_info" method="POST" noValidate>
       <Input
         name="companyName"
         label={local.accountInfoCompnayName[lang]}
         value={data.companyName || ""}
         placeholder={local.accountInfoCompnayName[lang]}
         onChange={handleChange}
-        error={getError(error, "companyName")}
-        apiError={getApiError(apiErrors, "Company Name")}
+        error={client_error(error, "companyName")}
+        apiError={api_error(apiErrors, "Company Name")}
       />
       <div className="div-colum">
         <Input
@@ -46,8 +45,8 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
           type="select"
           value={data.workField}
           onChange={handleChange}
-          error={getError(error, "workField")}
-          apiError={getApiError(apiErrors, "WorkField")}
+          error={client_error(error, "workField")}
+          apiError={api_error(apiErrors, "WorkField")}
         />
         <Input
           name="companySize"
@@ -58,8 +57,8 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
           className="dim-label"
           value={data.companySize}
           onChange={handleChange}
-          error={getError(error, "companySize")}
-          apiError={getApiError(apiErrors, "CompanySize")}
+          error={client_error(error, "companySize")}
+          apiError={api_error(apiErrors, "CompanySize")}
         />
       </div>
       <Input
@@ -69,8 +68,8 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
         value={data.subDomain || ""}
         placeholder="dexef112.dexeferp.net"
         onChange={handleChange}
-        error={getError(error, "subDomain")}
-        apiError={getApiError(apiErrors, "SubDomain")}
+        error={client_error(error, "subDomain")}
+        apiError={api_error(apiErrors, "SubDomain")}
       />
       {domainErr && (
         <p className="text-danger">
@@ -83,8 +82,8 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
         placeholder="mailbox@mail.com"
         value={data.email || ""}
         onChange={handleChange}
-        error={getError(error, "email")}
-        apiError={getApiError(apiErrors, "Email")}
+        error={client_error(error, "email")}
+        apiError={api_error(apiErrors, "Email")}
       />
       <Input
         name="password"
@@ -94,8 +93,8 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
         value={data.password || ""}
         onChange={handleChange}
         info={local.accountInfoPasswordInfo[lang]}
-        error={getError(error, "password")}
-        apiError={getApiError(apiErrors, "Password")}
+        error={client_error(error, "password")}
+        apiError={api_error(apiErrors, "Password")}
       />
       <Input
         name="confirmpassword"
@@ -104,14 +103,14 @@ const Step3Form = ({ error, body, apiErrors, workfields, companySizeData }) => {
         placeholder={local.accountInfoPlacConfirmPassword[lang]}
         value={data.confirmpassword || ""}
         onChange={handleChange}
-        error={getError(error, "confirmpassword")}
+        error={client_error(error, "confirmpassword")}
       />
       <button className="btn-go btn-block btn-blue d-block w-100">{local.accountInfoBtn[lang]}</button>
     </form>
   );
 };
 
-export default Step3Form;
+export default AccountInfoForm;
 
 // const emailHandler = (e, inputName) => {
 //   let email = e.target.value;

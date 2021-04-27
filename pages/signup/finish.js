@@ -1,10 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import Signuplayout from "@Components/signup/SignupLayout";
-import Step3Form from "@Components/signup/Step3Form";
+import AccountInfoForm from "@Components/signup/AccountInfoForm";
 
-import http from "../../lib/clientHttp";
-import companyHttp from "../../lib/companyHttp";
+import * as http from "lib/http";
 
 const Signup = ({ step, error, workfields, companySizeData }) => {
   const errObj = JSON.parse(error);
@@ -16,7 +15,7 @@ const Signup = ({ step, error, workfields, companySizeData }) => {
       <div className="row">
         <Signuplayout step={step}>
           {errObj.serverError && <div className="alert alert-danger">{errObj.serverError}</div>}
-          <Step3Form
+          <AccountInfoForm
             error={errObj.error}
             body={errObj.body}
             apiErrors={errObj.apiErrors}
@@ -33,11 +32,11 @@ export const getServerSideProps = async ({ req, res, query }) => {
   try {
     const {
       data: { response: workfields },
-    } = await companyHttp.get("http://192.168.1.7:5091/api/CompanyWorkField/GetAll");
+    } = await http.company.get("/CompanyWorkField/GetAll");
     const {
       data: { response: companySizeData },
-    } = await companyHttp.get("http://192.168.1.7:5091/api/CompanySize/GetAll");
-    const { data: data2 } = await http.post("/signup", { step: 3 });
+    } = await http.company.get("/CompanySize/GetAll");
+    const { data: data2 } = await http.client.post("/signup", { step: 3 });
     return {
       props: {
         step: query.step || data2.step,

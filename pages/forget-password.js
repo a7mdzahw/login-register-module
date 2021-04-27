@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+
 import Input from "@Components/shared/Input";
-import getError from "../lib/getError";
-import getApiError from "../lib/getApiError";
+import { client_error, api_error } from "lib";
 import useLang from "../context/LangContext";
 
 const ForgetPassword = ({ error: errObj }) => {
@@ -32,8 +32,8 @@ const ForgetPassword = ({ error: errObj }) => {
               value={data.email}
               onChange={setData}
               placeholder={local.forgotEmailPlacHolder[lang]}
-              error={getError(error, "email")}
-              apiError={getApiError(apiErrors, "Email")}
+              error={client_error(error, "email")}
+              apiError={api_error(apiErrors, "Email")}
             />
             <Link href="/">
               <a className="remembere">{local.forgotRemembered[lang]}</a>

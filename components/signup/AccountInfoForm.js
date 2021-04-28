@@ -72,8 +72,15 @@ const AccountInfoForm = ({ error, body, apiErrors, workfields, companySizeData }
         apiError={api_error(apiErrors, "SubDomain")}
       />
       {domainErr && (
-        <p className="text-danger">
-          ALready Exists Try: <span className="fw-bold">{domainErr}</span>
+        <p className="textError">
+          ALready Exists Try:{"  "}
+          <span
+            className="fw-bold"
+            onClick={(e) => setData({ ...data, subDomain: e.target.innerText })}
+            style={{ cursor: "pointer" }}
+          >
+            {domainErr}
+          </span>
         </p>
       )}
       <Input

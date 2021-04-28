@@ -60,7 +60,7 @@ const VerifyCodeForm = ({ error, apiErrors, millseconds, serverError }) => {
           <button className="btn-verify btn-blue" disabled={isDisabled}>
             {local.varifyPhoneBtnVerify[lang]}
           </button>
-          <Countdown date={Date.now() + 1 || initialTime} renderer={renderer} />
+          <Countdown date={Date.now() + initialTime} renderer={renderer} />
         </div>
       </form>
     </>

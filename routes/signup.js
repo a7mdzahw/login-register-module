@@ -51,7 +51,7 @@ module.exports = function signup(next) {
       const { data } = await http.server.post("/PreRegisteration", { ...req.body, country: country.name });
       if (await validate_response(data, "/signup", req, res, next)) return;
       req.session.preRegisterData = req.body;
-      req.session.validatePhoneToken = data.response?.verifyPhoneToken;
+      req.session.validatePhoneToken = data.response?.verifyPhoneToken || "server_down";
       res.cookie("validatePhoneToken", data.response?.verifyPhoneToken);
       res.redirect("/signup/verify_code");
     } catch (err) {

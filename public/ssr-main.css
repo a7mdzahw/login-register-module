@@ -68,8 +68,8 @@ body {
 }
 .input-div .input:focus {
   outline: none;
-  border-color: #0099ff;
-  box-shadow: inset 0px 0px 0px 2px #0099ff;
+  border: 2px solid #0099ff !important;
+  /* box-shadow: inset 0px 0px 0px 2px #0099ff; */
   transition: all ease-in-out 0.2s;
 }
 .input-div .info {
@@ -85,11 +85,16 @@ body {
 }
 
 .textError {
-  display: none;
+  font-size: 0.8em;
+  color: #f64f64 !important;
   margin-top: 5px;
 }
 
-.error .labelName {
+.border-red {
+  border-color: #f64f64 !important;
+}
+
+.error.labelName {
   color: #f64f64 !important;
 }
 .error .flag-dropdown,

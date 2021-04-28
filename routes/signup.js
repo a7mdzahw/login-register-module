@@ -1,6 +1,6 @@
 const express = require("express");
 // error validation fns
-const { validate_pre_register, validate_verify_code, validate_account_info } = require("../models/register");
+const { validate_pre_register, validate_verify_code, validate_account_info } = require("../models/Register");
 const { isValidPhoneNumber } = require("libphonenumber-js");
 // lib modules
 const http = require("../lib/http");

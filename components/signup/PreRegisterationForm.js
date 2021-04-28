@@ -28,14 +28,18 @@ const PreRegisterationForm = ({ error, body, apiErrors, phoneError, js }) => {
           onChange={handleChange}
         />
         <div className="select-div">
-          <label htmlFor="countryCode" className="labelName">
+          <label
+            htmlFor="countryCode"
+            className={client_error(error, "countryCode") || apiCountryErr ? "error labelName" : "labelName"}
+          >
             {local.signupCountry[lang]}
           </label>
           <select
             name="countryCode"
             placeholder="select country"
-            style={{ border: 0 }}
-            className={client_error(error, "countryCode") ? "dim-label input border border-danger " : "dim-label input"}
+            className={
+              client_error(error, "countryCode") || apiCountryErr ? "dim-label border-red input " : "dim-label input"
+            }
             value={data.countryCode || "none"}
             onChange={handleChange}
           >
@@ -48,11 +52,11 @@ const PreRegisterationForm = ({ error, body, apiErrors, phoneError, js }) => {
               </option>
             ))}
           </select>
-          {client_error(error, "countryCode") && <p className="text-danger">{local.signupErrCountry[lang]}</p>}
-          {apiCountryErr && <p className="text-danger mt-1">{apiCountryErr.description}</p>}
+          {client_error(error, "countryCode") && <p className="textError">{local.signupErrCountry[lang]}</p>}
+          {apiCountryErr && <p className="textError">{apiCountryErr.description}</p>}
         </div>
         <div className=" mb-3 input-div">
-          <label htmlFor="phone-input" className="labelName">
+          <label htmlFor="phone-input" className={phoneError || apiPhoneErr ? "error labelName" : "labelName"}>
             {local.signupPhoneNumber[lang]}
           </label>
           <PhoneInput
@@ -66,12 +70,12 @@ const PreRegisterationForm = ({ error, body, apiErrors, phoneError, js }) => {
               style: { width: "100%", fontFamily: "cairo-regular", height: "3rem" },
               required: true,
               id: "phone-input",
-              className: phoneError ? "form-control border border-danger" : "form-control",
+              className: phoneError || apiPhoneErr ? "form-control border-red" : "form-control",
             }}
           />
           <span className="info"> {local.signupPhoneInfo[lang]}</span>
-          {phoneError && <p className="text-danger mt-1">{local.signupErrPhone[lang]}</p>}
-          {apiPhoneErr && <p className="text-danger mt-1">{apiPhoneErr.description}</p>}
+          {phoneError && <p className="textError">{local.signupErrPhone[lang]}</p>}
+          {apiPhoneErr && <p className="textError">{apiPhoneErr.description}</p>}
         </div>
         <p className="terms">
           {local.signupTerms1[lang]}{" "}

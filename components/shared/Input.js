@@ -6,15 +6,11 @@ const ErrorMessage = ({ error, apiError }) => {
 
   return (
     <>
-      {error && (
-        <p className="text-danger" style={{ fontSize: "14px" }}>
-          {error}
-        </p>
-      )}
+      {error && <p className="textError">{error}</p>}
       {apiError.length > 0 && (
-        <p className="text-danger">
+        <p className="textError">
           {apiError.map((apiErr) => (
-            <strong key={apiErr.description}>{localErrs[apiErr.code][lang]}</strong>
+            <p key={apiErr.description}>{localErrs[apiErr.code][lang]}</p>
           ))}
         </p>
       )}
@@ -28,14 +24,14 @@ const Input = ({ label, name, value, onChange, error, type, info, apiError = [],
   if (type === "select") {
     return (
       <div className="select-div">
-        <label className={error || apiError.length > 0 ? "text-danger labelName" : "labelName"}>{label}</label>
+        <label className={error || apiError.length > 0 ? "error labelName" : "labelName"}>{label}</label>
         <select
           id={name}
           name={name}
           value={value || "none"}
           onChange={onChange}
           {...props}
-          className={error || apiError.length > 0 ? `${className} border border-danger input` : `${className} input`}
+          className={error || apiError.length > 0 ? `${className} border-red input` : `${className} input`}
         >
           <option disabled value="none">
             {props.placeholder}
@@ -62,7 +58,7 @@ const Input = ({ label, name, value, onChange, error, type, info, apiError = [],
   }
   return (
     <div className="input-div">
-      <label htmlFor={name} className={error || apiError.length > 0 ? "text-danger labelName" : "labelName"}>
+      <label htmlFor={name} className={error || apiError.length > 0 ? "error labelName" : "labelName"}>
         {label}
       </label>
       <input
@@ -73,7 +69,7 @@ const Input = ({ label, name, value, onChange, error, type, info, apiError = [],
         onChange={onChange}
         {...props}
         autoFocus={error}
-        className={error || apiError.length > 0 ? `${className} border border-danger input` : `${className} input`}
+        className={error || apiError.length > 0 ? `${className} border-red input` : `${className} input`}
       />
       {type === "password" && (
         <img

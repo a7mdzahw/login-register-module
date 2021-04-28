@@ -22,6 +22,13 @@ module.exports = function signup(next) {
     res.redirect("/signup/finish");
   });
 
+  // get Count Down for current User
+  router.get("/PhoneVerificationCountDown/:PhoneToken", async (req, res) => {
+    http.server.get(`/PhoneVerificationCountDown?PhoneToken=${req.params.PhoneToken}`).then(({ data }) => {
+      res.send({ time: data.response });
+    });
+  });
+
   // post routes
   // first rendering of signup page
   router.post("/signup", async (req, res) => {
@@ -48,7 +55,7 @@ module.exports = function signup(next) {
       res.cookie("validatePhoneToken", data.response?.verifyPhoneToken);
       res.redirect("/signup/verify_code");
     } catch (err) {
-      console.log(err.message);
+      console.log("signup", err);
       next.render(req, res, "/signup", { serverError: "Server Error Please Try Later" });
     }
   });
@@ -69,6 +76,7 @@ module.exports = function signup(next) {
     }
   });
 
+  // if user skips phone verfication
   router.get("/skip", async (req, res) => {
     req.session.phoneValidationToken = "not_activated";
     res.redirect("/signup/finish");
@@ -95,13 +103,6 @@ module.exports = function signup(next) {
           serverError: err.response?.data || err.message || err,
         });
       });
-  });
-
-  // get Count Down for current User
-  router.get("/PhoneVerificationCountDown/:PhoneToken", async (req, res) => {
-    http.server.get(`/PhoneVerificationCountDown?PhoneToken=${req.params.PhoneToken}`).then(({ data }) => {
-      res.send({ time: data.response });
-    });
   });
 
   return router;

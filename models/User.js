@@ -1,7 +1,7 @@
 const joi = require("joi");
 const local = require("../public/assets/Localization.json");
 
-const validate = (user, lang) => {
+const validate_user = (user, lang) => {
   const schema = joi.object({
     userName: joi
       .string()
@@ -19,4 +19,4 @@ const validate = (user, lang) => {
   return schema.validate(user, { abortEarly: false });
 };
 
-module.exports = validate;
+module.exports = validate_user;

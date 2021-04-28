@@ -1,11 +1,10 @@
 const express = require("express");
-
-const validate = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-const { check } = require("../lib");
+const validate_user = require("../models/User");
+
 const http = require("../lib/http");
-const { validate_response } = require("../lib");
+const { check, validate_response } = require("../lib");
 
 module.exports = function (next) {
   const router = express.Router();
@@ -21,7 +20,7 @@ module.exports = function (next) {
 
   // handling login form submittion
   router.post("/login", async (req, res) => {
-    if (await check(validate, "/login", req, res, next)) return;
+    if (await check(validate_user, "/login", req, res, next)) return;
     // calling api
     try {
       const { data } = await http.server.post("/Login", req.body, {

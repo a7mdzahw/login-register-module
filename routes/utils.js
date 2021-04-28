@@ -4,8 +4,8 @@ const Joi = require("joi");
 const local = require("../public/assets/Localization.json");
 
 const http = require("../lib/http");
-const { check } = require("../lib");
-const validate_response = require("../lib");
+const { check, validate_response } = require("../lib");
+
 const validatePassword = require("../models/Password");
 
 module.exports = function (next) {

@@ -25,6 +25,7 @@ module.exports = function signup(next) {
   // get Count Down for current User
   router.get("/PhoneVerificationCountDown/:PhoneToken", async (req, res) => {
     http.server.get(`/PhoneVerificationCountDown?PhoneToken=${req.params.PhoneToken}`).then(({ data }) => {
+      console.log(data);
       res.send({ time: data.response });
     });
   });
